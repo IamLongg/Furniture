@@ -4,18 +4,20 @@ import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ReactImageMagnify from "react-image-magnify";
+import { useDispatch, useSelector } from "react-redux";
+import { listProductDetails } from "../Redux/actions/ProductActions";
+import { useParams } from "react-router-dom";
 
 const DetailProduct = ({ match }) => {
   window.scrollTo(0, 0);
+  const productId = match.params.id;
+  const dispatch = useDispatch();
+  const productDetails = useSelector((state) => state.productDetails);
+  const { loading, error, product } = productDetails;
 
-  const [product, setProduct] = useState({});
   useEffect(() => {
-    const fetchProducts = async () => {
-      const { data } = await axios.get(`/api/products/${match.params.id}`);
-      setProduct(data);
-    };
-    fetchProducts();
-  }, [match]);
+    dispatch(listProductDetails(productId));
+  }, [dispatch, productId]);
 
   return (
     <>
