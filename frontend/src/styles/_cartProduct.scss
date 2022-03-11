@@ -47,7 +47,6 @@
     zoom: 1;
   }
 
-  /* Apply clearfix in a few places */
   .shopping-cart,
   .column-labels,
   .product,
@@ -55,7 +54,16 @@
     @extend .group;
   }
 
-  /* Apply dollar signs */
+  .cart-empty {
+    padding: 1.5rem 2.5rem;
+    border: $boder;
+    border-width: 0.1rem;
+    h5 {
+      @include text(1.4rem);
+      text-align: center;
+    }
+    margin-bottom: 5rem;
+  }
 
   h1 {
     font-weight: 100;
@@ -107,6 +115,11 @@
       .product-description {
         margin: 0.5rem 2rem 0.5rem 0;
         line-height: 1.4em;
+      }
+      .product-title {
+        a {
+          color: #252525;
+        }
       }
     }
 

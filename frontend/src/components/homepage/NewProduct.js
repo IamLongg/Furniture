@@ -35,7 +35,11 @@ const NewProduct = () => {
                 {productHot &&
                   productHot.length > 0 &&
                   productHot.map((product) => (
-                    <Link to={`/api/products/${product._id}`} className="item">
+                    <Link
+                      to={`products/${product._id}`}
+                      className="item"
+                      key={product._id}
+                    >
                       <div className="image">
                         <img src={product.image} className="img" />
                         <div className="info">

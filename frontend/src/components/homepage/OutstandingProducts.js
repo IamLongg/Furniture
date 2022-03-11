@@ -34,19 +34,22 @@ const OutstandingProducts = () => {
                   singleProduct.map((item) => (
                     <>
                       <Link
-                        to={`/api/products/${item._id}`}
+                        to={`/products/${item._id}`}
                         className="image"
-                        key={singleProduct._id}
+                        key={item._id}
                       >
                         <img src={item.image} className="img" />
                         <div className="info">
                           <Link
-                            to={`/api/products/${item._id}`}
+                            to={`/products/${item._id}`}
                             className="iconProduct"
                           >
                             <i className="fa-solid fa-eye"></i>
                           </Link>
-                          <Link to="/cart" className="iconProduct">
+                          <Link
+                            to={`/cart/${item._id}`}
+                            className="iconProduct"
+                          >
                             <i className="fas fa-dolly"></i>
                           </Link>
                         </div>
@@ -79,8 +82,9 @@ const OutstandingProducts = () => {
                     sliceProduct.length > 0 &&
                     sliceProduct.map((product) => (
                       <Link
-                        to={`/api/products/${product._id}`}
+                        to={`/products/${product._id}`}
                         className="item"
+                        key={product._id}
                       >
                         <div className="image">
                           <img
@@ -90,12 +94,15 @@ const OutstandingProducts = () => {
                           />
                           <div className="info">
                             <Link
-                              to={`/api/products/${product._id}`}
+                              to={`/products/${product._id}`}
                               className="iconProduct"
                             >
                               <i className="fa-solid fa-eye"></i>
                             </Link>
-                            <Link to="/cart" className="iconProduct">
+                            <Link
+                              to={`/cart/${product._id}`}
+                              className="iconProduct"
+                            >
                               <i className="fas fa-dolly"></i>
                             </Link>
                           </div>

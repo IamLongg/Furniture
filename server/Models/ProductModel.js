@@ -47,10 +47,6 @@ const productSchema = mongoose.Schema(
       require: true,
       default: 0,
     },
-    status: {
-      type: String,
-      require: true,
-    },
     rating: {
       type: Number,
       require: true,

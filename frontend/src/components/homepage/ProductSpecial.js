@@ -35,14 +35,14 @@ const ProductSpecial = () => {
                   singleProduct.map((item) => (
                     <>
                       <Link
-                        to={`/api/products/${item._id}`}
+                        to={`/products/${item._id}`}
                         className="image"
-                        key={singleProduct._id}
+                        key={item._id}
                       >
                         <img src={item.image} className="img" />
                         <div className="info">
                           <Link
-                            to={`/api/products/${item._id}`}
+                            to={`/products/${item._id}`}
                             className="iconProduct"
                           >
                             <i className="fa-solid fa-eye"></i>
@@ -80,8 +80,9 @@ const ProductSpecial = () => {
                     sliceProduct.length > 0 &&
                     sliceProduct.map((product) => (
                       <Link
-                        to={`/api/products/${product._id}`}
+                        to={`/products/${product._id}`}
                         className="item"
+                        key={product._id}
                       >
                         <div className="image">
                           <img
@@ -91,7 +92,7 @@ const ProductSpecial = () => {
                           />
                           <div className="info">
                             <Link
-                              to={`/api/products/${product._id}`}
+                              to={`/products/${product._id}`}
                               className="iconProduct"
                             >
                               <i className="fa-solid fa-eye"></i>

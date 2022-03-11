@@ -3,17 +3,22 @@ import logo from "../assets/images/logo.png";
 import "../styles/App.scss";
 import { NavLink } from "react-router-dom";
 import { Link, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Header = (props) => {
   const { isShowBg } = props;
+
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
   return (
     <>
       {isShowBg === true && <div className="background"></div>}
       <section id="header" className="header">
         <div className="container boxShadow">
           <div className="header-main flex-center">
-            <NavLink to="/" exact className="logo">
+            <Link to="/" exact className="logo">
               <img src={logo} alt="" />
-            </NavLink>
+            </Link>
             <div className="search">
               <input type="text" placeholder="Nhập từ khóa tìm kiếm" />
               <button className="search-icon">
@@ -30,7 +35,7 @@ const Header = (props) => {
               <div className="cart">
                 <Link to="/cart">
                   <i className="fas fa-dolly">
-                    <span className="cart-count">0</span>
+                    <span className="cart-count">{cartItems.length}</span>
                   </i>
                 </Link>
               </div>
@@ -50,24 +55,24 @@ const Header = (props) => {
                 </NavLink>
               </li>
               <li className="navbar-item">
-                <a href="#" className="links">
+                <NavLink to="#" className="links">
                   giới thiệu
-                </a>
+                </NavLink>
               </li>
               <li className="navbar-item">
-                <a href="#" className="links">
+                <NavLink to="#" className="links">
                   sản phẩm
-                </a>
+                </NavLink>
               </li>
               <li className="navbar-item">
-                <a href="#" className="links">
+                <NavLink to="#" className="links">
                   tin tức
-                </a>
+                </NavLink>
               </li>
               <li className="navbar-item">
-                <a href="#" className="links">
+                <NavLink to="#" className="links">
                   liên hệ
-                </a>
+                </NavLink>
               </li>
             </ul>
             <div className="hotline">
