@@ -18,14 +18,19 @@
       }
     }
     input {
-      padding: 0.5rem 10rem 0.5rem 1rem;
+      padding: 0.5rem 5rem 0.5rem 1rem;
       border: 0.1rem solid $gray;
       margin-top: 1rem;
+      width: 65%;
     }
     &-user {
       @include text(1.4rem);
     }
     &-email {
+      @include text(1.4rem);
+      margin: 2rem 0;
+    }
+    &-phone {
       @include text(1.4rem);
       margin: 2rem 0;
     }

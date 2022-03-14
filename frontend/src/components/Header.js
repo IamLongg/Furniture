@@ -2,13 +2,22 @@ import React from "react";
 import logo from "../assets/images/logo.png";
 import "../styles/App.scss";
 import { NavLink } from "react-router-dom";
-import { Link, useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../Redux/actions/userActions";
 const Header = (props) => {
   const { isShowBg } = props;
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => {
+    dispatch(logout());
+  };
 
   return (
     <>
@@ -26,12 +35,34 @@ const Header = (props) => {
               </button>
             </div>
             <div className="auth">
-              <div className="register">
-                <Link to="/register">đăng ký</Link>
-              </div>
-              <div className="login">
-                <Link to="/login">đăng nhập</Link>
-              </div>
+              {userInfo ? (
+                <div className="dropdown">
+                  <div className="dropdown-select">
+                    <span className="select">Xin chào, {userInfo.name}</span>
+                    <i className="fa fa-caret-down icon"></i>
+                  </div>
+                  <div className="dropdown-list">
+                    <div className="dropdown-list__item">
+                      <Link to="/profile">tài khoản</Link>
+                    </div>
+                    <div className="dropdown-list__item">
+                      <Link to="/" onClick={handleLogOut}>
+                        đăng xuất
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <div className="register">
+                    <Link to="/register">đăng ký</Link>
+                  </div>
+                  <div className="login">
+                    <Link to="/login">đăng nhập</Link>
+                  </div>
+                </>
+              )}
+
               <div className="cart">
                 <Link to="/cart">
                   <i className="fas fa-dolly">

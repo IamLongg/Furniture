@@ -24,7 +24,6 @@ const DetailProduct = ({ match, history }) => {
     e.preventDefault();
     history.push(`/cart/${productId}?quantity=${quantity}`);
   };
-
   return (
     <>
       <Header />

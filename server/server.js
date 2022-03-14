@@ -3,14 +3,17 @@ import dotenv from "dotenv";
 import connectDB from "./config/MongoDB.js";
 import ImportData from "./Seed.js";
 import productRoute from "./Routes/ProductRoutes.js";
+import userRouter from "./Routes/UserRoutes.js";
 import { errorHandler, notFound } from "./Middleware/Error.js";
 
 dotenv.config();
 connectDB();
 const app = express();
+app.use(express.json());
 
 app.use("/api/import", ImportData);
 app.use("/products", productRoute);
+app.use("/users", userRouter);
 
 // error handler
 app.use(notFound);
