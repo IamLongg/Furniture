@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/images/logo.png";
 import "../styles/App.scss";
 import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/actions/userActions";
+
 const Header = (props) => {
   const { isShowBg } = props;
+  const [keyword, setKeyWord] = useState();
+  let history = useHistory();
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -19,6 +22,15 @@ const Header = (props) => {
     dispatch(logout());
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (keyword.trim()) {
+      history.push(`/search/${keyword}`);
+    } else {
+      history.push("/");
+    }
+  };
+
   return (
     <>
       {isShowBg === true && <div className="background"></div>}
@@ -28,12 +40,16 @@ const Header = (props) => {
             <Link to="/" exact className="logo">
               <img src={logo} alt="" />
             </Link>
-            <div className="search">
-              <input type="text" placeholder="Nhập từ khóa tìm kiếm" />
-              <button className="search-icon">
+            <form onSubmit={handleSubmit} className="search">
+              <input
+                type="text"
+                placeholder="Nhập từ khóa tìm kiếm"
+                onChange={(e) => setKeyWord(e.target.value)}
+              />
+              <button type="submit" className="search-icon">
                 <i className="fa-solid fa-magnifying-glass"></i>
               </button>
-            </div>
+            </form>
             <div className="auth">
               {userInfo ? (
                 <div className="dropdown">

@@ -7,17 +7,17 @@ import { listProduct } from "../../Redux/actions/ProductActions";
 import Loading from "../LoadingError/Loading.js";
 import Message from "../LoadingError/Error.js";
 
-const ProductSpecial = () => {
+const ProductSpecial = (props) => {
+  const { keyword, pagenumber } = props;
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
+  const { loading, error, products, page, pages } = productList;
   const singleProduct = products.slice(0, 1);
-  const sliceProduct = products.slice(8, 16);
 
   useEffect(() => {
-    dispatch(listProduct());
-  }, [dispatch]);
+    dispatch(listProduct(keyword, pagenumber));
+  }, [dispatch, keyword, pagenumber]);
 
   return (
     <section id="productspecial" className="productspecial">
@@ -76,9 +76,9 @@ const ProductSpecial = () => {
                 <p>Error: {error}</p>
               ) : (
                 <>
-                  {sliceProduct &&
-                    sliceProduct.length > 0 &&
-                    sliceProduct.map((product) => (
+                  {products &&
+                    products.length > 0 &&
+                    products.map((product) => (
                       <Link
                         to={`/products/${product._id}`}
                         className="item"
@@ -111,7 +111,11 @@ const ProductSpecial = () => {
                 </>
               )}
             </div>
-            <Pagination />
+            <Pagination
+              pages={pages}
+              page={page}
+              keyword={keyword ? keyword : ""}
+            />
           </div>
         </div>
       </div>

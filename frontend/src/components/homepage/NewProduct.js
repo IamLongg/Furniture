@@ -7,16 +7,16 @@ import { listProduct } from "../../Redux/actions/ProductActions";
 import Loading from "../LoadingError/Loading.js";
 import Message from "../LoadingError/Error.js";
 
-const NewProduct = () => {
+const NewProduct = (props) => {
+  const { keyword } = props;
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
-  const productHot = products.slice(5, 10);
 
   useEffect(() => {
-    dispatch(listProduct());
-  }, [dispatch]);
+    dispatch(listProduct(keyword));
+  }, [dispatch, keyword]);
 
   return (
     <section id="newProducts" className="newProducts">
@@ -32,9 +32,9 @@ const NewProduct = () => {
               <Message variant="alert-danger">{error}</Message>
             ) : (
               <>
-                {productHot &&
-                  productHot.length > 0 &&
-                  productHot.map((product) => (
+                {products &&
+                  products.length > 0 &&
+                  products.map((product) => (
                     <Link
                       to={`products/${product._id}`}
                       className="item"

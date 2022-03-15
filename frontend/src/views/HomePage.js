@@ -9,16 +9,18 @@ import NewProduct from "../components/homepage/NewProduct";
 import News from "../components/homepage/News";
 import Footer from "../components/Footer";
 
-const HomePage = () => {
+const HomePage = ({ match }) => {
   const [isShowBg, setIsShowBg] = useState(true);
+  const keyword = match.params.keyword;
+  const pagenumber = match.params.pagenumber;
   return (
     <div>
       <Header isShowBg={isShowBg} />
-      <OutstandingProducts />
+      <OutstandingProducts keyword={keyword} pagenumber={pagenumber} />
       <Banner />
-      <ProductSpecial />
+      <ProductSpecial keyword={keyword} pagenumber={pagenumber} />
       <Advertise />
-      <NewProduct />
+      <NewProduct keyword={keyword} pagenumber={pagenumber} />
       <News />
       <Footer />
     </div>

@@ -1,16 +1,25 @@
 import React from "react";
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 const Loading = () => {
   return (
-    <div className="d-flex justify-content-center">
-      <div
-        className="spinner-border text-success"
-        role="status"
-        style={{ width: "50px", height: "50px" }}
-      >
-        <span className="sr-only">Loading...</span>
+    <>
+      <div className="background-image">
+        <div className="loading">
+          <h2>
+            Cảm ơn bạn đã đến với seaFurniture. Vui lòng đợi sau ít phút...
+          </h2>
+          <PacmanLoader
+            loading={true}
+            color="#f7941d"
+            speedMultiplier="1"
+            size="30px"
+            width={100}
+            height={100}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

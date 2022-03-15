@@ -8,21 +8,43 @@ import Profile from "./views/Profile";
 import NotFound from "./views/NotFound";
 import DetailProduct from "./views/DetailProduct";
 import CartProducts from "./views/CartProducts";
+import ProductsSearch from "./views/ProductsSearch";
+import Loading from "./components/LoadingError/Loading";
+import { useState, useEffect } from "react";
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 4000);
+  }, [isLoading]);
   return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route path="/" component={HomePage} exact />
-          <Route path="/products/:id" component={DetailProduct} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/cart/:id?" component={CartProducts} />
-          <Route path="*" component={NotFound} />
-        </Switch>
-      </Router>
-    </div>
+    <>
+      {isLoading == true ? (
+        <Loading />
+      ) : (
+        <div className="App">
+          <Router>
+            <Switch>
+              <Route path="/" component={HomePage} exact />
+              <Route path="/page/:pagenumber" component={HomePage} exact />
+              <Route path="/search/:keyword" component={ProductsSearch} exact />
+              <Route
+                path="/search/:keyword/page/:pageNumber"
+                component={ProductsSearch}
+                exact
+              />
+              <Route path="/products/:id" component={DetailProduct} />
+              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
+              <Route path="/profile" component={Profile} />
+              <Route path="/cart/:id?" component={CartProducts} />
+              <Route path="*" component={NotFound} />
+            </Switch>
+          </Router>
+        </div>
+      )}
+    </>
   );
 }
 
