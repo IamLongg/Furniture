@@ -14,6 +14,7 @@ const OutstandingProducts = () => {
   const { loading, error, products } = productList;
   const singleProduct = products.slice(0, 1);
   const sliceProduct = products.slice(0, 8);
+
   useEffect(() => {
     dispatch(listProduct());
   }, [dispatch]);
@@ -60,7 +61,7 @@ const OutstandingProducts = () => {
                         </a>
                       </div>
                       <div className="price">
-                        <h2>{item.price}</h2>
+                        <h2>{item.price + ",000"}₫</h2>
                       </div>
                     </>
                   ))}
@@ -110,7 +111,7 @@ const OutstandingProducts = () => {
                         <a href="" alt="">
                           {product.name}
                         </a>
-                        <p>{product.price}</p>
+                        <p>{product.price + ",000"}₫</p>
                       </Link>
                     ))}
                 </>

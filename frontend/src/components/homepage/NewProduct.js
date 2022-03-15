@@ -57,7 +57,7 @@ const NewProduct = () => {
                       <a href="" alt="">
                         {product.name}
                       </a>
-                      <p>{product.price}</p>
+                      <p>{product.price + ",000"}₫</p>
                     </Link>
                   ))}
               </>

@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import img from "../assets/images/product_1.jpg";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,10 +17,16 @@ const CartProducts = ({ match, location, history }) => {
   const { cartItems } = cart;
   console.log(cartItems);
 
+  const redirect = location.search ? location.search.split("=")[1] : "/login";
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
   const total = cartItems
-    .reduce((a, i) => a + i.quantity * i.price, 0)
-    .toFixed(2);
-  console.log(total);
+    .reduce((a, i) => a + i.quantity * parseFloat(i.price), 0)
+    .toString();
+  let total1 = total.slice(0, -3);
+  let total2 = total.slice(-3);
+  let sumTotalPrice = total1 + "," + total2 + ",000";
   useEffect(() => {
     if (productId) {
       dispatch(addToCart(productId, quantity));
@@ -29,7 +34,11 @@ const CartProducts = ({ match, location, history }) => {
   }, [dispatch, productId, quantity]);
 
   const handleCheckOut = () => {
-    history.pushState("/login?redirect=shipping");
+    if (!userInfo) {
+      history.push(redirect);
+    } else {
+      history.push("/login?redirect=shipping");
+    }
   };
 
   const handleRemoveProduct = (id) => {
@@ -72,7 +81,9 @@ const CartProducts = ({ match, location, history }) => {
                           </Link>
                         </div>
                       </div>
-                      <div className="product-price">{item.price}</div>
+                      <div className="product-price">
+                        {item.price + ",000"}₫
+                      </div>
                       <div className="product-quantity">
                         <select
                           value={item.quantity}
@@ -97,7 +108,9 @@ const CartProducts = ({ match, location, history }) => {
                           Xóa
                         </button>
                       </div>
-                      <div className="product-line-price">{item.price}</div>
+                      <div className="product-line-price">
+                        {item.price + ",000"}₫
+                      </div>
                     </div>
                   );
                 })}
@@ -105,7 +118,7 @@ const CartProducts = ({ match, location, history }) => {
                 <div className="totals-item">
                   <label>Tổng số thành tiền:</label>
                   <div className="totals-value" id="cart-subtotal">
-                    {total}
+                    {sumTotalPrice}₫
                   </div>
                 </div>
 

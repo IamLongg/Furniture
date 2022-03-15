@@ -1,7 +1,7 @@
 const products = [
   {
     name: "Bàn Aillen",
-    price: "400.000₫",
+    price: "400",
     image:
       "https://product.hstatic.net/200000280801/product/upload_e2e740ce86b24f429cd1dfbe206777b2_large.jpg",
     imageLarge: "/imgZoom/product_1_large.jpg",
@@ -16,7 +16,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_babeef6fa6044844b32d08b14892f8c1_large.jpg",
     imageLarge: "/imgZoom/product_2_large.jpg",
-    price: "960.000₫",
+    price: "960",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     countInStock: 10,
@@ -28,7 +28,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_6b032c7ce891416e8c001bc6a063b57e_large.jpg",
     imageLarge: "/imgZoom/product_3_large.jpg",
-    price: "750.000₫",
+    price: "750",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     countInStock: 0,
@@ -41,7 +41,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_cbd997dac1b64693a255edc1f3c4355c_large.jpg",
     imageLarge: "/imgZoom/product_4_large.jpg",
-    price: "750.000₫",
+    price: "750",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     countInStock: 10,
@@ -53,7 +53,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_111b23fecf12438cbaaf881b39ad6182_large.jpg",
     imageLarge: "/imgZoom/product_5_large.jpg",
-    price: "570.000₫",
+    price: "570",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     countInStock: 7,
@@ -65,7 +65,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_900a35429e89464bb1f66bdae46142d9_large.jpg",
     imageLarge: "/imgZoom/product_6_large.jpg",
-    price: "900.000₫",
+    price: "900",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
     countInStock: 0,
@@ -77,7 +77,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_470ce5aa3e8e4c7eaa1302d321ddd1b1_large.jpg",
     imageLarge: "/imgZoom/product_7_large.jpg",
-    price: "1.200.000₫",
+    price: "1200",
     countInStock: 7,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
@@ -89,7 +89,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_23f65cdc9c064abb8be1179d2b6cf118_large.jpg",
     imageLarge: "/imgZoom/product_8_large.jpg",
-    price: "800.000₫",
+    price: "800",
     countInStock: 4,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
@@ -101,7 +101,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_1dbf5c0621a7410c83406c329e08ac3a_large.jpg",
     imageLarge: "/imgZoom/product_9_large.jpg",
-    price: "1.000.000₫",
+    price: "1000",
     countInStock: 7,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
@@ -113,7 +113,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_6335a50c71584d4fb92ebc1957c6f55a_large.jpg",
     imageLarge: "/imgZoom/product_10_large.jpg",
-    price: "1.000.000₫",
+    price: "1000",
     countInStock: 8,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
@@ -125,7 +125,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_9a8f14769bdf4fee829e345726d85346_large.jpg",
     imageLarge: "/imgZoom/product_11_large.jpg",
-    price: "350.000₫",
+    price: "350",
     countInStock: 0,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
@@ -137,7 +137,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_0ba54b04a9f54d5a8498338ff2bc8273_large.jpg",
     imageLarge: "/imgZoom/product_12_large.jpg",
-    price: "600.000₫",
+    price: "600",
     countInStock: 7,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
@@ -149,7 +149,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_e85dbae4286f455785face60d686e414_large.jpg",
     imageLarge: "/imgZoom/product_13_large.jpg",
-    price: "750.000₫",
+    price: "750",
     countInStock: 4,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
@@ -161,7 +161,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_b902d84a30ff4bfd9994a9b1b723c3c7_large.jpg",
     imageLarge: "/imgZoom/product_14_large.jpg",
-    price: "500.000₫",
+    price: "500",
     countInStock: 7,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
@@ -173,7 +173,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_b9e9dc548cb94b66b17aa80b91f46153_large.jpg",
     imageLarge: "/imgZoom/product_15_large.jpg",
-    price: "2.200.000₫",
+    price: "2200",
     countInStock: 8,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
@@ -185,7 +185,7 @@ const products = [
     image:
       "https://product.hstatic.net/200000280801/product/upload_79d7d8c0b23a46039d0f66fcb838ad6f_large.jpg",
     imageLarge: "/imgZoom/product_16_large.jpg",
-    price: "5.100.000₫",
+    price: "5100",
     countInStock: 5,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",

@@ -58,7 +58,7 @@ const ProductSpecial = () => {
                         </a>
                       </div>
                       <div className="price">
-                        <h2>{item.price}</h2>
+                        <h2>{item.price + ",000"}₫</h2>
                       </div>
                     </>
                   ))}
@@ -105,7 +105,7 @@ const ProductSpecial = () => {
                         <a href="" alt="">
                           {product.name}
                         </a>
-                        <p>{product.price}</p>
+                        <p>{product.price + ",000"}₫</p>
                       </Link>
                     ))}
                 </>

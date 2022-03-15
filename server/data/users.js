@@ -13,7 +13,7 @@ const users = [
     email: "user@gmail.com",
     password: bcrypt.hashSync("123456", 10),
     phone: "0345638555",
-    isAdmin: true,
+    isAdmin: false,
   },
 ];
 
