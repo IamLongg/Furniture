@@ -10,6 +10,7 @@ import DetailProduct from "./views/DetailProduct";
 import CartProducts from "./views/CartProducts";
 import ProductsSearch from "./views/ProductsSearch";
 import Loading from "./components/LoadingError/Loading";
+import ShipmentDetail from "./views/ShipmentDetail";
 import { useState, useEffect } from "react";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -39,6 +40,7 @@ function App() {
               <Route path="/register" component={Register} />
               <Route path="/profile" component={Profile} />
               <Route path="/cart/:id?" component={CartProducts} />
+              <Route path="/shipping" component={ShipmentDetail} />
               <Route path="*" component={NotFound} />
             </Switch>
           </Router>
