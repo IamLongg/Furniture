@@ -95,7 +95,34 @@ const ShipmentDetail = () => {
         </form>
       </div>
       <div className="info-payment">
-        <img src={img} alt="product" />
+        <div className="max-with">
+          <div className="info-product">
+            <div className="image">
+              <img src={img} alt="product" />
+              <span className="count">1</span>
+              <h5 className="name">bàn binas</h5>
+            </div>
+            <h5 className="price">900,000</h5>
+          </div>
+          <div className="info-product">
+            <div className="image">
+              <img src={img} alt="product" />
+              <span className="count">1</span>
+              <h5 className="name">bàn binas</h5>
+            </div>
+            <h5 className="price">900,000</h5>
+          </div>
+          <div className="temporary-price">
+            <p>tạm tính</p>
+            <p>1,360,000</p>
+          </div>
+          <div className="total">
+            <h2 className="sumTotal">tổng cộng</h2>
+            <h2 className="sumTotal">
+              <span>vnd</span>1,360,000
+            </h2>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -10,8 +10,8 @@
         line-height: 3rem;
       }
       span {
-        @include text(1rem);
-        line-height: 4rem;
+        @include text(1.2rem);
+        line-height: 6rem;
         i {
           font-size: 0.8rem;
           margin: 0 0.5rem;
@@ -134,12 +134,70 @@
     background-color: #fafafa;
     border-left: 0.1rem solid $gray-light;
     padding: 3rem 0 0 5rem;
-    img {
-      width: 7rem;
-      height: 7rem;
-      border-radius: 0.5rem;
-      object-fit: cover;
-      border: 0.1rem solid $gray;
+    .max-with {
+      max-width: 40rem;
+      .info-product {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 3rem;
+        .image {
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+          img {
+            position: relative;
+            width: 6.5rem;
+            height: 6.5rem;
+            border-radius: 0.5rem;
+            object-fit: cover;
+            border: 0.1rem solid $gray;
+          }
+          span {
+            position: absolute;
+            top: -1rem;
+            left: 5.5rem;
+            font-size: 1.3rem;
+            height: 2rem;
+            width: 2rem;
+            line-height: 2rem;
+            text-align: center;
+            background-color: $gray-light1;
+            border-radius: 50%;
+            color: $white;
+          }
+          .name {
+            @include text(1.4rem);
+          }
+        }
+        .price {
+          @include text(1.4rem);
+        }
+      }
+      .temporary-price {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 2rem;
+        border-top: 0.1rem solid $gray-light;
+        p {
+          @include text(1.4rem);
+        }
+      }
+      .total {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+        h2 {
+          @include text(1.4rem);
+          span {
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: $gray-light1;
+            padding: 0 1.5rem;
+          }
+        }
+      }
     }
   }
 }
