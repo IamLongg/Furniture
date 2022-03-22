@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/Header";
 import OutstandingProducts from "../components/homepage/OutstandingProducts";
-import Footer from "../components/Footer";
+import { listProduct } from "../Redux/actions/ProductActions";
 
-const HomePage = ({ match, isShowBg }) => {
+const ProductsSearch = ({ match, isShowBg, pagenumber }) => {
   const keyword = match.params.keyword;
+  const dispatch = useDispatch();
+
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products, page, pages } = productList;
+
+  useEffect(() => {
+    dispatch(listProduct(keyword, pagenumber));
+  }, [dispatch, keyword, pagenumber]);
   return (
-    <div>
+    <>
       <Header isShowBg={true} />
-      <OutstandingProducts keyword={keyword} />
-    </div>
+      <div className="productSearch">
+        <div className="container">
+          <h2>Có {products.length} kết quả tìm kiếm</h2>
+          <OutstandingProducts keyword={keyword} />
+        </div>
+      </div>
+    </>
   );
 };
-export default HomePage;
+export default ProductsSearch;

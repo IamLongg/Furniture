@@ -1,7 +1,7 @@
 .cart {
   h3 {
     @include text(3rem);
-    padding: 5rem 0;
+    padding: 20rem 0 5rem;
   }
   .product-image {
     float: left;

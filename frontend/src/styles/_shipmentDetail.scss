@@ -23,6 +23,24 @@
       h3 {
         @include text(1.6rem);
       }
+      .radio-container {
+        display: inline-flex;
+        align-items: center;
+        margin: 2rem 0;
+        padding: 2rem;
+        border: 0.1rem solid $darkorange;
+        border-radius: 0.5rem;
+        .form-check-input {
+          width: 1.5rem;
+          height: 1.5rem;
+          line-height: 1.5rem;
+          margin-right: 1.5rem;
+        }
+        .form-check-label {
+          @include text(1.4rem);
+          color: $gray;
+        }
+      }
       .user {
         display: flex;
         gap: 1rem;
@@ -116,7 +134,7 @@
         background-color: $darkorange;
         color: $white;
         border-radius: 0.5rem;
-        margin-right: 5rem;
+        margin-right: 16rem;
         cursor: pointer;
         transition: $transition;
         &:hover {
@@ -134,6 +152,7 @@
     background-color: #fafafa;
     border-left: 0.1rem solid $gray-light;
     padding: 3rem 0 0 5rem;
+    height: 100vh;
     .max-with {
       max-width: 40rem;
       .info-product {

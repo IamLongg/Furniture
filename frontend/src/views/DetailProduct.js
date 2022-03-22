@@ -28,75 +28,73 @@ const DetailProduct = ({ match, history }) => {
     <>
       <Header />
       <div id="detailProduct" className="detailProduct">
-        <div className="container">
-          <div className="detailProduct-main">
-            {loading ? (
-              <Loading />
-            ) : error ? (
-              <Message>{error}</Message>
-            ) : (
-              <>
-                {product && (
-                  <>
-                    <div className="detailProduct-main-image">
-                      <div className="img">
-                        <ReactImageMagnify
-                          {...{
-                            smallImage: {
-                              alt: product.name,
-                              isFluidWidth: true,
-                              src: product.image,
-                            },
-                            largeImage: {
-                              src: product.imageLarge,
-                              width: 600,
-                              height: 600,
-                            },
-                          }}
-                        />
-                      </div>
-                      {/* <img src={product.image} alt={product.name}></img> */}
+        {loading ? (
+          <Loading />
+        ) : error ? (
+          <Message>{error}</Message>
+        ) : (
+          <div className="container">
+            <div className="detailProduct-main">
+              {product && (
+                <>
+                  <div className="detailProduct-main-image">
+                    <div className="img">
+                      <ReactImageMagnify
+                        {...{
+                          smallImage: {
+                            alt: product.name,
+                            isFluidWidth: true,
+                            src: product.image,
+                          },
+                          largeImage: {
+                            src: product.imageLarge,
+                            width: 600,
+                            height: 600,
+                          },
+                        }}
+                      />
                     </div>
-                    <div className="detailProduct-main-box">
-                      <h2 className="name">{product.name}</h2>
-                      <h3 className="price">{product.price + ",000"}₫</h3>
-                      <h5 className="status">
-                        tình trạng:{" "}
-                        {product.countInStock > 0 ? (
-                          <span>Còn Hàng</span>
-                        ) : (
-                          <span>Tạm Hết Hàng</span>
-                        )}
-                      </h5>
+                    {/* <img src={product.image} alt={product.name}></img> */}
+                  </div>
+                  <div className="detailProduct-main-box">
+                    <h2 className="name">{product.name}</h2>
+                    <h3 className="price">{product.price + ",000"}₫</h3>
+                    <h5 className="status">
+                      tình trạng:{" "}
                       {product.countInStock > 0 ? (
-                        <>
-                          <p className="quantity">
-                            số lượng
-                            <select
-                              value={quantity}
-                              onChange={(e) => setQuantity(e.target.value)}
-                            >
-                              {[...Array(product.countInStock).keys()].map(
-                                (item) => (
-                                  <option key={item + 1} value={item + 1}>
-                                    {item + 1}
-                                  </option>
-                                )
-                              )}
-                            </select>
-                          </p>
-                          <button onClick={handleToAddCart} className="btn">
-                            thêm vào giỏ hàng
-                          </button>
-                        </>
-                      ) : null}
-                    </div>
-                  </>
-                )}
-              </>
-            )}
+                        <span>Còn Hàng</span>
+                      ) : (
+                        <span>Tạm Hết Hàng</span>
+                      )}
+                    </h5>
+                    {product.countInStock > 0 ? (
+                      <>
+                        <p className="quantity">
+                          số lượng
+                          <select
+                            value={quantity}
+                            onChange={(e) => setQuantity(e.target.value)}
+                          >
+                            {[...Array(product.countInStock).keys()].map(
+                              (item) => (
+                                <option key={item + 1} value={item + 1}>
+                                  {item + 1}
+                                </option>
+                              )
+                            )}
+                          </select>
+                        </p>
+                        <button onClick={handleToAddCart} className="btn">
+                          thêm vào giỏ hàng
+                        </button>
+                      </>
+                    ) : null}
+                  </div>
+                </>
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
       <Footer />
     </>
