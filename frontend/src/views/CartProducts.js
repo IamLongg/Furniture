@@ -21,12 +21,11 @@ const CartProducts = ({ match, location, history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  const total = cartItems
-    .reduce((a, i) => a + i.quantity * parseFloat(i.price), 0)
-    .toString();
-  let total1 = total.slice(0, -3);
-  let total2 = total.slice(-3);
-  let sumTotalPrice = total1 + "," + total2 + ",000";
+  const total = cartItems.reduce(
+    (sum, number) => sum + number.quantity * number.price,
+    0
+  );
+
   useEffect(() => {
     if (productId) {
       dispatch(addToCart(productId, quantity));
@@ -72,7 +71,7 @@ const CartProducts = ({ match, location, history }) => {
                   return (
                     <div className="product">
                       <div className="product-image">
-                        <img src={item.image} />
+                        <img src={item.image} alt="img" />
                       </div>
                       <div className="product-details">
                         <div className="product-title">
@@ -82,7 +81,8 @@ const CartProducts = ({ match, location, history }) => {
                         </div>
                       </div>
                       <div className="product-price">
-                        {item.price + ",000"}₫
+                        {new Intl.NumberFormat("vi-VN").format(`${item.price}`)}
+                        ₫
                       </div>
                       <div className="product-quantity">
                         <select
@@ -109,7 +109,8 @@ const CartProducts = ({ match, location, history }) => {
                         </button>
                       </div>
                       <div className="product-line-price">
-                        {item.price + ",000"}₫
+                        {new Intl.NumberFormat("vi-VN").format(`${item.price}`)}
+                        ₫
                       </div>
                     </div>
                   );
@@ -118,7 +119,7 @@ const CartProducts = ({ match, location, history }) => {
                 <div className="totals-item">
                   <label>Tổng số thành tiền:</label>
                   <div className="totals-value" id="cart-subtotal">
-                    {sumTotalPrice}₫
+                    {new Intl.NumberFormat("vi-VN").format(`${total}`)}₫
                   </div>
                 </div>
 

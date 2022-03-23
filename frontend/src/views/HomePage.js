@@ -31,7 +31,7 @@ const HomePage = ({ match }) => {
           <Banner />
           <ProductSpecial keyword={keyword} pagenumber={pagenumber} />
           <Advertise />
-          <NewProduct keyword={keyword} pagenumber={pagenumber} />
+          <NewProduct keyword={keyword} />
           <News />
           <Footer />
         </div>

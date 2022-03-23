@@ -4,6 +4,8 @@ import connectDB from "./config/MongoDB.js";
 import ImportData from "./Seed.js";
 import productRoute from "./Routes/ProductRoutes.js";
 import userRouter from "./Routes/UserRoutes.js";
+import orderRouter from "./Routes/OrderRoutes.js";
+
 import { errorHandler, notFound } from "./Middleware/Error.js";
 
 dotenv.config();
@@ -14,6 +16,7 @@ app.use(express.json());
 app.use("/api/import", ImportData);
 app.use("/products", productRoute);
 app.use("/users", userRouter);
+app.use("/orders", orderRouter);
 
 // error handler
 app.use(notFound);

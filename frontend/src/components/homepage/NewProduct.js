@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { listProduct } from "../../Redux/actions/ProductActions";
 import Loading from "../LoadingError/Loading.js";
@@ -41,10 +40,10 @@ const NewProduct = (props) => {
                       key={product._id}
                     >
                       <div className="image">
-                        <img src={product.image} className="img" />
+                        <img src={product.image} className="img" alt="img" />
                         <div className="info">
                           <Link
-                            to={`/products/${product.id}`}
+                            to={`/products/${product._id}`}
                             className="iconProduct"
                           >
                             <i className="fa-solid fa-eye"></i>
@@ -54,10 +53,15 @@ const NewProduct = (props) => {
                           </Link>
                         </div>
                       </div>
-                      <a href="" alt="">
+                      <a href="/#" alt="">
                         {product.name}
                       </a>
-                      <p>{product.price + ",000"}₫</p>
+                      <p>
+                        {new Intl.NumberFormat("vi-VN").format(
+                          `${product.price}`
+                        )}
+                        ₫
+                      </p>
                     </Link>
                   ))}
               </>

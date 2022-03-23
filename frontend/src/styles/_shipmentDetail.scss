@@ -23,6 +23,9 @@
       h3 {
         @include text(1.6rem);
       }
+      .text {
+        margin: 2rem 0;
+      }
       .radio-container {
         display: inline-flex;
         align-items: center;
@@ -41,6 +44,51 @@
           color: $gray;
         }
       }
+      .list-info {
+        width: 80%;
+        padding: 2rem;
+        border: 0.1rem solid $gray-light;
+        border-radius: 0.5rem;
+        background-color: #fafafa;
+        box-shadow: $box-shadow;
+        &-user {
+          position: relative;
+          margin-bottom: 5rem;
+          &::after {
+            position: absolute;
+            content: "";
+            left: 0;
+            bottom: -2rem;
+            width: 90%;
+            height: 0.1rem;
+            background-color: $gray-light;
+            border-radius: 0.5rem;
+          }
+          .info-user {
+            margin-bottom: 1rem;
+            i {
+              font-size: 2rem;
+              color: $darkorange;
+              padding-right: 1rem;
+            }
+            span {
+              @include text(1.4rem);
+            }
+          }
+          p {
+            @include text(1.2rem);
+          }
+          .info-status {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border-radius: 0.5rem;
+            background-color: #f15f79;
+            p {
+              color: $white;
+            }
+          }
+        }
+      }
       .user {
         display: flex;
         gap: 1rem;
@@ -49,19 +97,20 @@
           background-color: $gray-light;
           border-radius: 0.5rem;
           i {
-            font-size: 2rem;
+            font-size: 2.6rem;
             color: $white;
-            padding: 1.5rem;
+            padding: 2rem;
           }
         }
         span {
           font-size: 1.4rem;
+          text-transform: none;
         }
       }
       .form__div {
         position: relative;
         height: 48px;
-        margin-bottom: 1.5rem;
+        margin: 4rem 0;
       }
       .form__input {
         position: absolute;
@@ -100,7 +149,7 @@
 
       .form__input:not(:placeholder-shown).form__input:not(:focus)
         + .form__label {
-        top: -0.5rem;
+        top: -1rem;
         left: 0.8rem;
         z-index: 10;
         font-weight: 500;
@@ -154,7 +203,7 @@
     padding: 3rem 0 0 5rem;
     height: 100vh;
     .max-with {
-      max-width: 40rem;
+      max-width: 45rem;
       .info-product {
         display: flex;
         justify-content: space-between;
@@ -197,7 +246,7 @@
       .temporary-price {
         display: flex;
         justify-content: space-between;
-        padding-top: 2rem;
+        padding: 2rem 0;
         border-top: 0.1rem solid $gray-light;
         p {
           @include text(1.4rem);
@@ -208,7 +257,7 @@
         justify-content: space-between;
         margin-top: 2rem;
         h2 {
-          @include text(1.4rem);
+          @include text(1.8rem);
           span {
             font-size: 1rem;
             text-transform: uppercase;
@@ -216,6 +265,9 @@
             padding: 0 1.5rem;
           }
         }
+      }
+      .btn-paypal {
+        margin: 4rem 0;
       }
     }
   }

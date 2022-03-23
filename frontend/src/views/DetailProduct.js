@@ -58,7 +58,12 @@ const DetailProduct = ({ match, history }) => {
                   </div>
                   <div className="detailProduct-main-box">
                     <h2 className="name">{product.name}</h2>
-                    <h3 className="price">{product.price + ",000"}₫</h3>
+                    <h3 className="price">
+                      {new Intl.NumberFormat("vi-VN").format(
+                        `${product.price}`
+                      )}
+                      ₫
+                    </h3>
                     <h5 className="status">
                       tình trạng:{" "}
                       {product.countInStock > 0 ? (

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Pagination from "./Pagination";
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { listProduct } from "../../Redux/actions/ProductActions";
 import Loading from "../LoadingError/Loading.js";
 import Message from "../LoadingError/Error.js";
@@ -39,7 +39,7 @@ const ProductSpecial = (props) => {
                         className="image"
                         key={item._id}
                       >
-                        <img src={item.image} className="img" />
+                        <img src={item.image} className="img" alt="img" />
                         <div className="info">
                           <Link
                             to={`/products/${item._id}`}
@@ -53,12 +53,17 @@ const ProductSpecial = (props) => {
                         </div>
                       </Link>
                       <div className="name">
-                        <a href="" alt="">
+                        <a href="/#" alt="">
                           {item.name}
                         </a>
                       </div>
                       <div className="price">
-                        <h2>{item.price + ",000"}₫</h2>
+                        <h2>
+                          {new Intl.NumberFormat("vi-VN").format(
+                            `${item.price}`
+                          )}
+                          ₫
+                        </h2>
                       </div>
                     </>
                   ))}
@@ -102,10 +107,15 @@ const ProductSpecial = (props) => {
                             </Link>
                           </div>
                         </div>
-                        <a href="" alt="">
+                        <a href="/#" alt="">
                           {product.name}
                         </a>
-                        <p>{product.price + ",000"}₫</p>
+                        <p>
+                          {new Intl.NumberFormat("vi-VN").format(
+                            `${product.price}`
+                          )}
+                          ₫
+                        </p>
                       </Link>
                     ))}
                 </>

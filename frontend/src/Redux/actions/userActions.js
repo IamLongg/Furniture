@@ -51,6 +51,7 @@ export const logout = () => async (dispatch) => {
   dispatch({ type: USER_LOGOUT_SUCCESS });
   dispatch({ type: USER_DETAILS_PROFILE_RESET });
   document.location.href = "/login";
+  localStorage.removeItem("cartItems");
 };
 
 export const register = (name, email, password, phone) => async (dispatch) => {
