@@ -2,10 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { savePaymentMethod } from "../Redux/actions/cartActions";
-import {
-  ORDER_CREATE_RESET,
-  ORDER_CREATE_SUCCESS,
-} from "../Redux/constants/OrderConstants";
+import { ORDER_CREATE_RESET } from "../Redux/constants/OrderConstants";
 import { createOrder } from "../Redux/actions/orderActions";
 import Message from "../components/LoadingError/Error";
 
@@ -39,6 +36,7 @@ const Payment = ({ history }) => {
   useEffect(() => {
     if (success) {
       history.push(`/order/${order._id}`);
+      dispatch({ type: ORDER_CREATE_RESET });
     }
   }, [history, dispatch, success, order]);
   const handleClick = (e) => {

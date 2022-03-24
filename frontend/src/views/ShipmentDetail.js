@@ -81,7 +81,7 @@ const ShipmentDetail = ({ history }) => {
                 <h3>Thông tin giao hàng</h3>
                 <div className="user">
                   <div className="image">
-                    <i class="fa-solid fa-user"></i>
+                    <i className="fa-solid fa-user"></i>
                   </div>
                   <span>{userInfo.name}</span>
                   <span>({userInfo.email})</span>
