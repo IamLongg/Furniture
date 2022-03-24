@@ -1,6 +1,6 @@
 import express from "express";
 import asyncHandler from "express-async-handler";
-import protect from "../Middleware/AuthMiddleWare.js";
+import { protect } from "../Middleware/AuthMiddleWare.js";
 import Order from "../Models/OrderModel.js";
 
 const orderRouter = express.Router();

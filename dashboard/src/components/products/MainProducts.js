@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Product from "./Product";
-import products from "./../../data/Products";
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from "../../Redux/actions/ProductActions";
+import Loading from "../LoadingError/Loading";
+import Message from "../LoadingError/Error";
 
 const MainProducts = () => {
+  const dispatch = useDispatch();
+
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products } = productList;
+
+  const productDelete = useSelector((state) => state.productList);
+  const { error: errorDelete, success: successDelete } = productDelete;
+
+  useEffect(() => {
+    dispatch(listProducts());
+  }, [dispatch, successDelete]);
   return (
     <section className="content-main">
       <div className="content-header">
@@ -27,10 +41,10 @@ const MainProducts = () => {
             </div>
             <div className="col-lg-2 col-6 col-md-3">
               <select className="form-select">
-                <option>All category</option>
-                <option>Electronics</option>
-                <option>Clothings</option>
-                <option>Something else</option>
+                <option>Tất Cả</option>
+                <option>Bàn</option>
+                <option>Đồng Hồ</option>
+                <option>Khác</option>
               </select>
             </div>
             <div className="col-lg-2 col-6 col-md-3">
@@ -44,12 +58,21 @@ const MainProducts = () => {
         </header>
 
         <div className="card-body">
-          <div className="row">
-            {/* Products */}
-            {products.map((product) => (
-              <Product product={product} key={product._id} />
-            ))}
-          </div>
+          {errorDelete && (
+            <Message variant="alert-danger">{errorDelete}</Message>
+          )}
+          {loading ? (
+            <Loading />
+          ) : error ? (
+            <Message variant="alert-danger">{error}</Message>
+          ) : (
+            <div className="row">
+              {/* Products */}
+              {products.map((product) => (
+                <Product product={product} key={product._id} />
+              ))}
+            </div>
+          )}
 
           <nav className="float-end mt-4" aria-label="Page navigation">
             <ul className="pagination">
