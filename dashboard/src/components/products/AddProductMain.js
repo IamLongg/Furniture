@@ -16,32 +16,32 @@ const toastObj = {
 };
 
 const AddProductMain = () => {
-  const [name, setname] = useState("")
-  const [price, setprice] = useState(0)
-  const [image, setimage] = useState("")
-  const [countInStock, setcountInStock] = useState(0)
-  const [description, setdescription] = useState("")
+  const [name, setname] = useState("");
+  const [price, setprice] = useState(0);
+  const [image, setimage] = useState("");
+  const [countInStock, setcountInStock] = useState(0);
+  const [description, setdescription] = useState("");
 
   const dispatch = useDispatch();
 
-  const productCreate = useSelector((state) => state.productCreate)
-  const { loading, error, product } = productCreate
+  const productCreate = useSelector((state) => state.productCreate);
+  const { loading, error, product } = productCreate;
 
   useEffect(() => {
     if (product) {
-      toast.success("Product Added", toastObj)
-      dispatch({ type: PRODUCT_CREATE_RESET })
-      setname("")
-      setdescription("")
-      setcountInStock(0)
-      setimage("")
-      setprice(0)
+      toast.success("Product Added", toastObj);
+      dispatch({ type: PRODUCT_CREATE_RESET });
+      setname("");
+      setdescription("");
+      setcountInStock(0);
+      setimage("");
+      setprice(0);
     }
-  }, [product, dispatch])
+  }, [product, dispatch]);
 
 
   const submitHandler = (e) => {
-    e.prevenDefault();
+    e.preventDefault();
     dispatch(createProducts(name, price, description, image, countInStock));
   }
 

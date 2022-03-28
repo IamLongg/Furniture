@@ -9,6 +9,12 @@ import {
   PRODUCT_LIST_FAIL,
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
+  PRODUCT_EDIT_FAIL,
+  PRODUCT_EDIT_REQUEST,
+  PRODUCT_EDIT_SUCCESS,
+  PRODUCT_UPDATE_FAIL,
+  PRODUCT_UPDATE_REQUEST,
+  PRODUCT_UPDATE_SUCCESS
 } from "../constants/ProductConstants";
 import { logout } from "./userActions";
 
@@ -116,3 +122,62 @@ export const createProducts =
       });
     }
   };
+
+  //EDIT PRODUCT
+export const editProduct = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: PRODUCT_EDIT_REQUEST });
+    const { data } = await axios.get(`/products/${id}`);
+    dispatch({ type: PRODUCT_EDIT_SUCCESS, payload: data });
+  } catch (error) {
+      const message =
+          error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message;
+      if (message === "not auth, token fail!") {
+          dispatch(logout());
+      }
+      dispatch({
+          type: PRODUCT_EDIT_FAIL,
+          payload: message,
+      });
+  }
+};
+
+// UPDATE product
+export const updateProducts = 
+(product) => async (dispatch, getState) => {
+  try {
+      dispatch({ type: PRODUCT_UPDATE_REQUEST });
+
+      const {
+          userLogin: { userInfo },
+      } = getState();
+
+      const config = {
+          headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${userInfo.token}`,
+          },
+      };
+
+      const { data } = await axios.put(
+        `/products/${product._id}`, 
+        product, config);
+
+      dispatch({ type: PRODUCT_UPDATE_SUCCESS, payload: data });
+      dispatch({ type: PRODUCT_EDIT_SUCCESS, payload: data });
+  } catch (error) {
+      const message =
+          error.response && error.response.data.message
+              ? error.response.data.message
+              : error.message;
+      if (message === "not auth, token fail!") {
+          dispatch(logout());
+      }
+      dispatch({
+          type: PRODUCT_UPDATE_FAIL,
+          payload: message,
+      });
+  }
+};

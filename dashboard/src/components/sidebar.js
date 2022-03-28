@@ -39,6 +39,7 @@ const Sidebar = () => {
                 activeClassName="active"
                 className="menu-link"
                 to="/products"
+                exact
               >
                 <i className="icon fas fa-shopping-bag"></i>
                 <span className="text">Sản Phẩm</span>
