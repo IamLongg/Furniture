@@ -9,39 +9,41 @@ import Message from "../LoadingError/Error";
 import moment from "moment";
 
 const OrderDetailmain = (props) => {
-  const {orderId} = props;
-  const dispatch = useDispatch()
+  const { orderId } = props;
+  const dispatch = useDispatch();
 
-  const orderDetails=useSelector((state) => state.orderDetails);
-  const { loading, error, order} = orderDetails;
+  const orderDetails = useSelector((state) => state.orderDetails);
+  const { loading, error, order } = orderDetails;
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(getOrderDetails(orderId));
-  },[dispatch, orderId])
+  }, [dispatch, orderId]);
   return (
     <section className="content-main">
       <div className="content-header">
         <Link to="/orders" className="btn btn-dark text-white">
-          Back To Orders
+          Trở về Đơn Đặt Hàng
         </Link>
       </div>
 
-      {
-        loading ? (<Loading/>)
-         : error ? (<Message variant="alert-danger">{error}</Message>)
-         :
-        (
-          <div className="card">
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <Message variant="alert-danger">{error}</Message>
+      ) : (
+        <div className="card">
           <header className="card-header p-3 Header-green">
             <div className="row align-items-center ">
               <div className="col-lg-6 col-md-6">
                 <span>
                   <i className="far fa-calendar-alt mx-2"></i>
-                  <b className="text-white">{moment(order.createdAt).format("llll")}</b>
+                  <b className="text-white">
+                    {moment(order.createdAt).format("llll")}
+                  </b>
                 </span>
                 <br />
                 <small className="text-white mx-3 ">
-                  Order ID: {order._id}
+                  Mã Đơn Hàng: {order._id}
                 </small>
               </div>
               <div className="col-lg-6 col-md-6 ms-auto d-flex justify-content-end align-items-center">
@@ -49,11 +51,11 @@ const OrderDetailmain = (props) => {
                   className="form-select d-inline-block"
                   style={{ maxWidth: "200px" }}
                 >
-                  <option>Change status</option>
-                  <option>Awaiting payment</option>
-                  <option>Confirmed</option>
-                  <option>Shipped</option>
-                  <option>Delivered</option>
+                  <option>Thay trạng thái</option>
+                  <option>Chờ thanh toán</option>
+                  <option>Đã xác nhận</option>
+                  <option>Đã ship</option>
+                  <option>Đã giao hàng</option>
                 </select>
                 <Link className="btn btn-success ms-2" to="#">
                   <i className="fas fa-print"></i>
@@ -63,27 +65,26 @@ const OrderDetailmain = (props) => {
           </header>
           <div className="card-body">
             {/* Order info */}
-            <OrderDetailInfo order={order}/>
-  
+            <OrderDetailInfo order={order} />
+
             <div className="row">
               <div className="col-lg-9">
                 <div className="table-responsive">
-                  <OrderDetailProducts order={order} loading={loading}/>
+                  <OrderDetailProducts order={order} loading={loading} />
                 </div>
               </div>
               {/* Payment Info */}
               <div className="col-lg-3">
                 <div className="box shadow-sm bg-light">
                   <button className="btn btn-dark col-12">
-                    MARK AS DELIVERED
+                    Đánh dấu đã giao hàng
                   </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        )} 
-
+      )}
     </section>
   );
 };

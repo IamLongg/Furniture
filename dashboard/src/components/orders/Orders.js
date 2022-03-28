@@ -26,7 +26,9 @@ const Orders = (props) => {
               <b>{order.user.name}</b>
             </td>
             <td>{order.user.email}</td>
-            <td>{order.totalPrice}</td>
+            <td>
+              {new Intl.NumberFormat("vi-VN").format(`${order.totalPrice}`)}₫
+            </td>
             <td>
               {order.isPaid ? (
                 <span className="badge rounded-pill alert-success">
