@@ -10,7 +10,7 @@ const TopTotal = () => {
               <i className="text-primary fas fa-usd-circle"></i>
             </span>
             <div className="text">
-              <h6 className="mb-1">Total Sales</h6> <span>$22,678</span>
+              <h6 className="mb-1">Tổng doanh số</h6> <span>$22,678</span>
             </div>
           </article>
         </div>
@@ -22,7 +22,7 @@ const TopTotal = () => {
               <i className="text-success fas fa-bags-shopping"></i>
             </span>
             <div className="text">
-              <h6 className="mb-1">Total Orders</h6>
+              <h6 className="mb-1">Tổng số đơn hàng</h6>
               <span>130</span>
             </div>
           </article>
@@ -35,7 +35,7 @@ const TopTotal = () => {
               <i className="text-warning fas fa-shopping-basket"></i>
             </span>
             <div className="text">
-              <h6 className="mb-1">Total Products</h6>
+              <h6 className="mb-1">Tổng số sản phẩm</h6>
               <span>70</span>
             </div>
           </article>

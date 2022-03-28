@@ -39,11 +39,10 @@ const AddProductMain = () => {
     }
   }, [product, dispatch]);
 
-
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(createProducts(name, price, description, image, countInStock));
-  }
+  };
 
   return (
     <>
@@ -52,12 +51,12 @@ const AddProductMain = () => {
         <form onSubmit={submitHandler}>
           <div className="content-header">
             <Link to="/products" className="btn btn-danger text-white">
-              Go to products
+              Trở về danh sách
             </Link>
-            <h2 className="content-title">Add product</h2>
+            <h2 className="content-title">Thêm Sản Phẩm</h2>
             <div>
               <button type="submit" className="btn btn-primary">
-                Publish now
+                Tạo sản phẩm
               </button>
             </div>
           </div>
@@ -66,19 +65,15 @@ const AddProductMain = () => {
             <div className="col-xl-8 col-lg-8">
               <div className="card mb-4 shadow-sm">
                 <div className="card-body">
-                  {
-                    error && <Message variant="alert-danger">{error}</Message>
-                  }
-                  {
-                    loading && <Loading />
-                  }
+                  {error && <Message variant="alert-danger">{error}</Message>}
+                  {loading && <Loading />}
                   <div className="mb-4">
                     <label htmlFor="product_title" className="form-label">
-                      Product title
+                      Tên sản phẩm
                     </label>
                     <input
                       type="text"
-                      placeholder="Type here"
+                      placeholder="Nhập tên sản phẩm"
                       className="form-control"
                       id="product_title"
                       required
@@ -88,11 +83,11 @@ const AddProductMain = () => {
                   </div>
                   <div className="mb-4">
                     <label htmlFor="product_price" className="form-label">
-                      Price
+                      Giá
                     </label>
                     <input
                       type="number"
-                      placeholder="Type here"
+                      placeholder="Nhập giá"
                       className="form-control"
                       id="product_price"
                       required
@@ -102,11 +97,11 @@ const AddProductMain = () => {
                   </div>
                   <div className="mb-4">
                     <label htmlFor="product_price" className="form-label">
-                      Count In Stock
+                      Số lượng thêm
                     </label>
                     <input
                       type="number"
-                      placeholder="Type here"
+                      placeholder="Số lượng thêm"
                       className="form-control"
                       id="product_price"
                       required
@@ -115,9 +110,9 @@ const AddProductMain = () => {
                     />
                   </div>
                   <div className="mb-4">
-                    <label className="form-label">Description</label>
+                    <label className="form-label">Chi tiết sản phẩm</label>
                     <textarea
-                      placeholder="Type here"
+                      placeholder="Nội dung ..."
                       className="form-control"
                       rows="7"
                       required
@@ -126,11 +121,10 @@ const AddProductMain = () => {
                     ></textarea>
                   </div>
                   <div className="mb-4">
-                    <label className="form-label">Images</label>
+                    <label className="form-label">Hình</label>
                     <input
                       className="form-control"
                       type="text"
-                      placeholder="Inter Image URL"
                       value={image}
                       onChange={(e) => setimage(e.target.value)}
                     />

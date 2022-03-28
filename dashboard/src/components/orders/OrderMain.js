@@ -5,12 +5,12 @@ import Loading from "../LoadingError/Loading";
 import Orders from "./Orders";
 
 const OrderMain = () => {
-  const orderList=useSelector((state) => state.orderList);
-  const { loading, error, orders} = orderList;
+  const orderList = useSelector((state) => state.orderList);
+  const { loading, error, orders } = orderList;
   return (
     <section className="content-main">
       <div className="content-header">
-        <h2 className="content-title">Orders</h2>
+        <h2 className="content-title">Đơn đặt hàng</h2>
       </div>
 
       <div className="card mb-4 shadow-sm">
@@ -19,39 +19,36 @@ const OrderMain = () => {
             <div className="col-lg-4 col-md-6 me-auto">
               <input
                 type="text"
-                placeholder="Search..."
+                placeholder="Tìm kiếm..."
                 className="form-control p-2"
               />
             </div>
             <div className="col-lg-2 col-6 col-md-3">
               <select className="form-select">
-                <option>Status</option>
-                <option>Active</option>
-                <option>Disabled</option>
-                <option>Show all</option>
+                <option>Trạng thái</option>
+                <option>Đã thanh toán</option>
+                <option>Chưa thanh toán</option>
+                <option>Hiển thị tất cả</option>
               </select>
             </div>
             <div className="col-lg-2 col-6 col-md-3">
               <select className="form-select">
-                <option>Show 20</option>
-                <option>Show 30</option>
-                <option>Show 40</option>
+                <option>Hiển thị 20</option>
+                <option>Hiển thị 30</option>
+                <option>Hiển thị 40</option>
               </select>
             </div>
           </div>
         </header>
         <div className="card-body">
           <div className="table-responsive">
-            {
-              loading ? (
-              <Loading/>)
-              : error ? (
-              <Message variant="alert-danger">{error}</Message>)
-              : (
-                <Orders orders={orders}/>
-              )
-            }
-            
+            {loading ? (
+              <Loading />
+            ) : error ? (
+              <Message variant="alert-danger">{error}</Message>
+            ) : (
+              <Orders orders={orders} />
+            )}
           </div>
         </div>
       </div>

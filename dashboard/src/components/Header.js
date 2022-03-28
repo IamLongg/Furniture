@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import $ from "jquery";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { logout } from "../Redux/actions/userActions";
 
-
 const Header = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
     $("[data-trigger]").on("click", function (e) {
       e.preventDefault();
@@ -27,8 +26,8 @@ const Header = () => {
   }, []);
 
   const logoutHandler = () => {
-    dispatch(logout())
-  }
+    dispatch(logout());
+  };
 
   return (
     <header className="main-header navbar">
@@ -39,7 +38,7 @@ const Header = () => {
               list="search_terms"
               type="text"
               className="form-control"
-              placeholder="Search term"
+              placeholder="Tìm kiếm ..."
             />
             <button className="btn btn-light bg" type="button">
               <i className="far fa-search"></i>
@@ -73,7 +72,7 @@ const Header = () => {
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="#">
-              English
+              Việt Nam
             </Link>
           </li>
           <li className="dropdown nav-item">
@@ -86,13 +85,17 @@ const Header = () => {
             </Link>
             <div className="dropdown-menu dropdown-menu-end">
               <Link className="dropdown-item" to="/">
-                My profile
+                Hồ sơ
               </Link>
               <Link className="dropdown-item" to="#">
-                Settings
+                Cài đặt
               </Link>
-              <Link onClick={logoutHandler} className="dropdown-item text-danger" to="#">
-                Exit
+              <Link
+                onClick={logoutHandler}
+                className="dropdown-item text-danger"
+                to="#"
+              >
+                Đăng xuất
               </Link>
             </div>
           </li>
