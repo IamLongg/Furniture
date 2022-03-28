@@ -29,7 +29,7 @@ const AddProductMain = () => {
 
   useEffect(() => {
     if (product) {
-      toast.success("Product Added", toastObj);
+      toast.success("Thêm Sản Phâm Thành Công! ", toastObj);
       dispatch({ type: PRODUCT_CREATE_RESET });
       setname("");
       setdescription("");

@@ -2,7 +2,6 @@ import express from "express";
 import asyncHandler from "express-async-handler";
 import Product from "./../Models/ProductModel.js";
 import { protect, admin } from "../Middleware/AuthMiddleWare.js";
-import mongoose from "mongoose";
 
 const productRoute = express.Router();
 
@@ -77,7 +76,7 @@ productRoute.post(
   protect,
   admin,
   asyncHandler(async (req, res) => {
-    const { name, price, description, image, countInStock  } = req.body;
+    const { name, price, description, image, countInStock } = req.body;
     const productExist = await Product.findOne({ name });
     if (productExist) {
       res.status(400);
@@ -104,12 +103,12 @@ productRoute.post(
 
 // Update product
 productRoute.put(
-  "/:id",
+  "/edit/:id",
   protect,
   admin,
   asyncHandler(async (req, res) => {
     const { name, price, description, image, countInStock } = req.body;
-    const product = await Product.findById(req.params._id);
+    const product = await Product.findById(req.params.id);
     if (product) {
       product.name = name || product.name;
       product.image = image || product.image;

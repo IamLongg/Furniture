@@ -33,7 +33,7 @@ const CartProducts = ({ match, location, history }) => {
   }, [dispatch, productId, quantity]);
 
   const handleCheckOut = () => {
-    if (!userInfo) {
+    if (!userInfo || userInfo === null) {
       history.push(redirect);
     } else {
       history.push("/login?redirect=shipping");
