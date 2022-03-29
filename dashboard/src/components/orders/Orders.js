@@ -32,7 +32,7 @@ const Orders = (props) => {
             <td>
               {order.isPaid ? (
                 <span className="badge rounded-pill alert-success">
-                  Thanh toán ngày {moment(order.paidAt).format("MMM Do YY")}
+                  Thanh toán ngày {order.paidAt}
                 </span>
               ) : (
                 <span className="badge rounded-pill alert-danger">
