@@ -8,7 +8,10 @@ import Profile from "./views/Profile";
 import NotFound from "./views/NotFound";
 import AllProduct from "./views/AllProduct";
 import DetailProduct from "./views/DetailProduct";
+import AllNew from "./views/AllNew";
 import Detailnew from "./views/Detailnew";
+import Intro from "./views/Intro";
+import Contact from "./views/Contact";
 import CartProducts from "./views/CartProducts";
 import ProductsSearch from "./views/ProductsSearch";
 import ShipmentDetail from "./views/ShipmentDetail";
@@ -35,7 +38,10 @@ function App() {
               path="/all/products/page/:pagenumber"
               component={AllProduct}
             />
+            <Route path="/all/news" component={AllNew} />
             <Route path="/news/:id" component={Detailnew} />
+            <Route path="/intro" component={Intro} exact />
+            <Route path="/contact" component={Contact} exact />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/profile" component={Profile} />

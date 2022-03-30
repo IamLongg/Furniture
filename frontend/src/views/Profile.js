@@ -13,7 +13,7 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
-  const { error, loading, userInfo } = userLogin;
+  const { userInfo } = userLogin;
 
   useEffect(() => {
     dispatch(getUserDetailsProfile("profile"));

@@ -102,7 +102,7 @@ const Header = (props) => {
                 </NavLink>
               </li>
               <li className="navbar-item">
-                <NavLink to="#" className="links">
+                <NavLink to="/intro" className="links">
                   giới thiệu
                 </NavLink>
               </li>
@@ -112,12 +112,12 @@ const Header = (props) => {
                 </NavLink>
               </li>
               <li className="navbar-item">
-                <NavLink to="#" className="links">
+                <NavLink to="/all/news" className="links">
                   tin tức
                 </NavLink>
               </li>
               <li className="navbar-item">
-                <NavLink to="#" className="links">
+                <NavLink to="/contact" className="links">
                   liên hệ
                 </NavLink>
               </li>
