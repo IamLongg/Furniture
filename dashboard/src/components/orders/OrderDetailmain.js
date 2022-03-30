@@ -3,7 +3,7 @@ import OrderDetailProducts from "./OrderDetailProducts";
 import OrderDetailInfo from "./OrderDetailInfo";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deliverOrder, getOrderDetails } from "../../Redux/actions/OrderAction";
+import { getOrderDetails } from "../../Redux/actions/OrderAction";
 import Loading from "../LoadingError/Loading";
 import Message from "../LoadingError/Error";
 import moment from "moment";
@@ -15,17 +15,9 @@ const OrderDetailmain = (props) => {
   const orderDetails = useSelector((state) => state.orderDetails);
   const { loading, error, order } = orderDetails;
 
-  const orderDeliver = useSelector((state) => state.orderDeliver);
-  const { loading: loadingDelivered, success: successDelivered } = orderDeliver;
-
   useEffect(() => {
     dispatch(getOrderDetails(orderId));
-  }, [dispatch, orderId, successDelivered]);
-
-  const deliverHandler = () =>{
-    dispatch(deliverOrder(order))
-  }
-
+  }, [dispatch, orderId]);
   return (
     <section className="content-main">
       <div className="content-header">
@@ -84,24 +76,9 @@ const OrderDetailmain = (props) => {
               {/* Payment Info */}
               <div className="col-lg-3">
                 <div className="box shadow-sm bg-light">
-                  {
-                    order.isDelivered ? (
-                      <button className="btn btn-success col-12">
-                      Đã giao hàng ({" "} {moment(order.isDeliveredAt).format("MMM Do YY")})
-                    </button>
-                    ) : (
-                      <> 
-                        {
-                          loadingDelivered && <Loading/>
-                        }
-                        <button onClick={deliverHandler} className="btn btn-dark col-12">
-                      Đánh dấu đã giao hàng
-                    </button>
-                      </>
-                      
-                    )
-                  }
-                 
+                  <button className="btn btn-dark col-12">
+                    Đánh dấu đã giao hàng
+                  </button>
                 </div>
               </div>
             </div>
