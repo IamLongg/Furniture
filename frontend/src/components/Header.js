@@ -33,7 +33,7 @@ const Header = (props) => {
 
   return (
     <>
-      {isShowBg === true && <div className="background"></div>}
+      {isShowBg === false && <div className="background"></div>}
       <section id="header" className="header">
         <div className="container boxShadow">
           <div className="header-main flex-center">
@@ -107,7 +107,7 @@ const Header = (props) => {
                 </NavLink>
               </li>
               <li className="navbar-item">
-                <NavLink to="#" className="links">
+                <NavLink to="/all/products" className="links">
                   sản phẩm
                 </NavLink>
               </li>

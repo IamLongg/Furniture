@@ -6,7 +6,9 @@ import Login from "./views/Login";
 import Register from "./views/Register";
 import Profile from "./views/Profile";
 import NotFound from "./views/NotFound";
+import AllProduct from "./views/AllProduct";
 import DetailProduct from "./views/DetailProduct";
+import Detailnew from "./views/Detailnew";
 import CartProducts from "./views/CartProducts";
 import ProductsSearch from "./views/ProductsSearch";
 import ShipmentDetail from "./views/ShipmentDetail";
@@ -28,6 +30,12 @@ function App() {
               exact
             />
             <Route path="/products/:id" component={DetailProduct} />
+            <Route path="/all/products" component={AllProduct} exact />
+            <Route
+              path="/all/products/page/:pagenumber"
+              component={AllProduct}
+            />
+            <Route path="/news/:id" component={Detailnew} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/profile" component={Profile} />

@@ -18,8 +18,11 @@ import {
   orderDetailsReducer,
   orderPayReducer,
 } from "./reducers/OrderReducres.js";
+import { newDetailReducer, newListReducer } from "./reducers/NewReducers.js";
 
 const reducer = combineReducers({
+  newListProduct: newListReducer,
+  newDetails: newDetailReducer,
   productList: productListReducer,
   productDetails: productDetailsReducer,
   cart: cartReducer,

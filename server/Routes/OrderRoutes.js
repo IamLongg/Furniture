@@ -46,23 +46,22 @@ orderRouter.get(
   protect,
   admin,
   asyncHandler(async (req, res) => {
-    const orders = await Order.find({}).
-    sort({ _id: -1})
-    .populate("user", "id name email");
+    const orders = await Order.find({})
+      .sort({ _id: -1 })
+      .populate("user", "id name email");
     res.json(orders);
   })
-  );
-
+);
 
 //USER LOGIN ORDER
 orderRouter.get(
   "/",
   protect,
   asyncHandler(async (req, res) => {
-    const order = await Order.find({ user: req.user._id}).sort({ _id: -1});
+    const order = await Order.find({ user: req.user._id }).sort({ _id: -1 });
     res.json(order);
   })
-  );
+);
 
 // get order by id
 orderRouter.get(
@@ -98,6 +97,26 @@ orderRouter.put(
         update_time: req.body.update_time,
         email_address: req.body.email_address,
       };
+
+      const updatedOrder = await order.save();
+      res.json(updatedOrder);
+    } else {
+      res.status(404);
+      throw new Error("Order Not Found");
+    }
+  })
+);
+
+// order is delivered
+orderRouter.put(
+  "/:id/delivered",
+  protect,
+  asyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id);
+
+    if (order) {
+      order.isDelivered = true;
+      order.deliveredAt = Date.now();
 
       const updatedOrder = await order.save();
       res.json(updatedOrder);

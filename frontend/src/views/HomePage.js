@@ -11,7 +11,7 @@ import Footer from "../components/Footer";
 import LoadingPage from "../components/LoadingError/LoadingPage";
 
 const HomePage = ({ match }) => {
-  const [isShowBg, setIsShowBg] = useState(true);
+  const [isShowBg, setIsShowBg] = useState(false);
   const keyword = match.params.keyword;
   const pagenumber = match.params.pagenumber;
   const [isLoading, setIsLoading] = useState(true);

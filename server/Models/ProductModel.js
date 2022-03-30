@@ -29,10 +29,6 @@ const productSchema = mongoose.Schema(
       type: String,
       require: true,
     },
-    imageLarge: {
-      type: String,
-      require: true,
-    },
     price: {
       type: Number,
       require: true,

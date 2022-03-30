@@ -39,22 +39,8 @@ const DetailProduct = ({ match, history }) => {
                 <>
                   <div className="detailProduct-main-image">
                     <div className="img">
-                      <ReactImageMagnify
-                        {...{
-                          smallImage: {
-                            alt: product.name,
-                            isFluidWidth: true,
-                            src: product.image,
-                          },
-                          largeImage: {
-                            src: product.imageLarge,
-                            width: 600,
-                            height: 600,
-                          },
-                        }}
-                      />
+                      <img src={product.image} alt={product.name}></img>
                     </div>
-                    {/* <img src={product.image} alt={product.name}></img> */}
                   </div>
                   <div className="detailProduct-main-box">
                     <h2 className="name">{product.name}</h2>
@@ -72,6 +58,10 @@ const DetailProduct = ({ match, history }) => {
                         <span>Tạm Hết Hàng</span>
                       )}
                     </h5>
+                    <h5 className="status">
+                      chi tiết sản phẩm: {product.description}
+                    </h5>
+
                     {product.countInStock > 0 ? (
                       <>
                         <p className="quantity">
