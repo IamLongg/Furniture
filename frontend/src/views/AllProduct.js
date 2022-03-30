@@ -4,6 +4,8 @@ import Footer from "../components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { listProduct } from "../Redux/actions/ProductActions";
 import PaginationAllProduct from "../components/homepage/PaginationAllProduct";
+import Loading from "../components/LoadingError/Loading";
+import Message from "../components/LoadingError/Error";
 import { Link } from "react-router-dom";
 
 const AllProduct = ({ match }) => {
@@ -29,9 +31,13 @@ const AllProduct = ({ match }) => {
               </div>
               <div className="content">
                 {loading ? (
-                  <p>Loading...</p>
+                  <p>
+                    <Loading />
+                  </p>
                 ) : error ? (
-                  <p>Error: {error}</p>
+                  <p>
+                    <Message variant="alert-danger">{error}</Message>
+                  </p>
                 ) : (
                   <>
                     {products &&
