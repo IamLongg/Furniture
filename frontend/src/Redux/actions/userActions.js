@@ -16,6 +16,7 @@ import {
 } from "../constants/UserConstants";
 
 import axios from "axios";
+import { ORDER_LIST_MY_RESET } from "../constants/OrderConstants";
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -50,6 +51,7 @@ export const logout = () => async (dispatch) => {
   localStorage.removeItem("userInfo");
   dispatch({ type: USER_LOGOUT_SUCCESS });
   dispatch({ type: USER_DETAILS_PROFILE_RESET });
+  dispatch({ type: ORDER_LIST_MY_RESET });
   document.location.href = "/login";
   localStorage.removeItem("cartItems");
 };

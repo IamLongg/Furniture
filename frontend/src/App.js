@@ -17,6 +17,7 @@ import ProductsSearch from "./views/ProductsSearch";
 import ShipmentDetail from "./views/ShipmentDetail";
 import Payment from "./views/Payment";
 import Order from "./views/Order";
+import PrivateRouter from "./PrivateRouter";
 
 function App() {
   return (
@@ -44,11 +45,11 @@ function App() {
             <Route path="/contact" component={Contact} exact />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <Route path="/profile" component={Profile} />
+            <PrivateRouter path="/profile" component={Profile} />
             <Route path="/cart/:id?" component={CartProducts} />
-            <Route path="/shipping" component={ShipmentDetail} />
-            <Route path="/payment" component={Payment} />
-            <Route path="/order/:id" component={Order} />
+            <PrivateRouter path="/shipping" component={ShipmentDetail} />
+            <PrivateRouter path="/payment" component={Payment} />
+            <PrivateRouter path="/order/:id" component={Order} />
             <Route path="*" component={NotFound} />
           </Switch>
         </Router>

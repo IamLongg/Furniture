@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserDetailsProfile } from "../Redux/actions/userActions";
 import moment from "moment";
 import img from "../assets/images/LOGOBYLONG.png";
+import { listMyOrders } from "../Redux/actions/orderActions";
+
 const Profile = () => {
   window.scrollTo(0, 100);
   const [index, setIndex] = useState(0);
@@ -15,7 +17,11 @@ const Profile = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const orderListMyProfile = useSelector((state) => state.orderListMyProfile);
+  const { loading, error, orders } = orderListMyProfile;
+
   useEffect(() => {
+    dispatch(listMyOrders());
     dispatch(getUserDetailsProfile("profile"));
   }, [dispatch]);
 
@@ -28,7 +34,7 @@ const Profile = () => {
             <ProfileUser />
           </div>
           <div className="infomation" hidden={index !== 1}>
-            <OrderProfile />
+            <OrderProfile orders={orders} loading={loading} error={error} />
           </div>
           <div className="card">
             <div className="card-avatar">

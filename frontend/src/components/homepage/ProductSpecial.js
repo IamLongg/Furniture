@@ -47,7 +47,10 @@ const ProductSpecial = (props) => {
                           >
                             <i className="fa-solid fa-eye"></i>
                           </Link>
-                          <Link to="/cart" className="iconProduct">
+                          <Link
+                            to={`/cart/${item._id}`}
+                            className="iconProduct"
+                          >
                             <i className="fas fa-dolly"></i>
                           </Link>
                         </div>
@@ -102,7 +105,10 @@ const ProductSpecial = (props) => {
                             >
                               <i className="fa-solid fa-eye"></i>
                             </Link>
-                            <Link to="/cart" className="iconProduct">
+                            <Link
+                              to={`/cart/${product._id}`}
+                              className="iconProduct"
+                            >
                               <i className="fas fa-dolly"></i>
                             </Link>
                           </div>
