@@ -55,16 +55,6 @@ const Sidebar = () => {
                 <span className="text">Thêm Sản Phẩm</span>
               </NavLink>
             </li>
-            {/* <li className="menu-item">
-              <NavLink
-                activeClassName="active"
-                className="menu-link"
-                to="/category"
-              >
-                <i className="icon fas fa-list"></i>
-                <span className="text">Danh Sách</span>
-              </NavLink>
-            </li> */}
             <li className="menu-item">
               <NavLink
                 activeClassName="active"
@@ -83,27 +73,6 @@ const Sidebar = () => {
               >
                 <i className="icon fas fa-user"></i>
                 <span className="text">Người Dùng</span>
-              </NavLink>
-            </li>
-            <li className="menu-item">
-              <NavLink
-                activeClassName="active"
-                className="menu-link disabled"
-                to="/sellers"
-              >
-                <i className="icon fas fa-store-alt"></i>
-                <span className="text">Giảm Giá</span>
-              </NavLink>
-            </li>
-
-            <li className="menu-item">
-              <NavLink
-                activeClassName="active"
-                className="menu-link disabled"
-                to="/transaction"
-              >
-                <i className="icon fas fa-usd-circle"></i>
-                <span className="text">Transactions</span>
               </NavLink>
             </li>
           </ul>

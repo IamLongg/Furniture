@@ -20,42 +20,44 @@ const Orders = (props) => {
         </tr>
       </thead>
       <tbody>
-        {orders.map((order) => (
-          <tr key={order._id}>
-            <td>
-              <b>{order.user.name}</b>
-            </td>
-            <td>{order.user.email}</td>
-            <td>
-              {new Intl.NumberFormat("vi-VN").format(`${order.totalPrice}`)}₫
-            </td>
-            <td>
-              {order.isPaid ? (
-                <span className="badge rounded-pill alert-success">
-                  Đã Thanh toán
-                </span>
-              ) : (
-                <span className="badge rounded-pill alert-danger">
-                  Chưa thanh toán
-                </span>
-              )}
-            </td>
-            <td>{order.createdAt}</td>
+        {orders.map((item) => {
+          return (
+            <tr key={item._id}>
+              <td>
+                <b>{item.user.name}</b>
+              </td>
+              <td>{item.user.email}</td>
+              <td>
+                {new Intl.NumberFormat("vi-VN").format(`${item.totalPrice}`)}₫
+              </td>
+              <td>
+                {item.isPaid ? (
+                  <span className="badge rounded-pill alert-success">
+                    Đã Thanh toán
+                  </span>
+                ) : (
+                  <span className="badge rounded-pill alert-danger">
+                    Chưa thanh toán
+                  </span>
+                )}
+              </td>
+              <td>{item.createdAt}</td>
 
-            <td>
-              {order.isDelivered ? (
-                <span className="badge btn-success">Đã giao</span>
-              ) : (
-                <span className="badge btn-dark">Chưa giao</span>
-              )}
-            </td>
-            <td className="d-flex justify-content-end align-item-center">
-              <Link to={`/order/${order._id}`} className="text-success">
-                <i className="fas fa-eye"></i>
-              </Link>
-            </td>
-          </tr>
-        ))}
+              <td>
+                {item.isDelivered ? (
+                  <span className="badge btn-success">Đã giao</span>
+                ) : (
+                  <span className="badge btn-dark">Chưa giao</span>
+                )}
+              </td>
+              <td className="d-flex justify-content-end align-item-center">
+                <Link to={`/order/${item._id}`} className="text-success">
+                  <i className="fas fa-eye"></i>
+                </Link>
+              </td>
+            </tr>
+          );
+        })}
 
         {/* Not paid Not delivered */}
         {/*<tr>

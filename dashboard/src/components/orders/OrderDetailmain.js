@@ -55,16 +55,6 @@ const OrderDetailmain = (props) => {
                 </small>
               </div>
               <div className="col-lg-6 col-md-6 ms-auto d-flex justify-content-end align-items-center">
-                <select
-                  className="form-select d-inline-block"
-                  style={{ maxWidth: "200px" }}
-                >
-                  <option>Thay trạng thái</option>
-                  <option>Chờ thanh toán</option>
-                  <option>Đã xác nhận</option>
-                  <option>Đã ship</option>
-                  <option>Đã giao hàng</option>
-                </select>
                 <Link className="btn btn-success ms-2" to="#">
                   <i className="fas fa-print"></i>
                 </Link>

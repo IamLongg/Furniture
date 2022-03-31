@@ -23,21 +23,6 @@ const OrderMain = () => {
                 className="form-control p-2"
               />
             </div>
-            <div className="col-lg-2 col-6 col-md-3">
-              <select className="form-select">
-                <option>Trạng thái</option>
-                <option>Đã thanh toán</option>
-                <option>Chưa thanh toán</option>
-                <option>Hiển thị tất cả</option>
-              </select>
-            </div>
-            <div className="col-lg-2 col-6 col-md-3">
-              <select className="form-select">
-                <option>Hiển thị 20</option>
-                <option>Hiển thị 30</option>
-                <option>Hiển thị 40</option>
-              </select>
-            </div>
           </div>
         </header>
         <div className="card-body">

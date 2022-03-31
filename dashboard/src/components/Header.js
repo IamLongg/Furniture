@@ -70,16 +70,11 @@ const Header = () => {
               <i className="fas fa-bell"></i>
             </Link>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="#">
-              Việt Nam
-            </Link>
-          </li>
           <li className="dropdown nav-item">
             <Link className="dropdown-toggle" data-bs-toggle="dropdown" to="#">
               <img
                 className="img-xs rounded-circle"
-                src="/images/favicon.png"
+                src="/images/LOGOBYLONG.png"
                 alt="User"
               />
             </Link>

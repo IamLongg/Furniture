@@ -79,9 +79,13 @@ const ProductSpecial = (props) => {
             </div>
             <div className="content">
               {loading ? (
-                <p>Loading...</p>
+                <p>
+                  <Loading />
+                </p>
               ) : error ? (
-                <p>Error: {error}</p>
+                <p>
+                  <Message variant="alert-danger"> {error}</Message>
+                </p>
               ) : (
                 <>
                   {products &&
