@@ -26,8 +26,21 @@ const Contact = () => {
                 <i className="fa-solid fa-envelope"></i>longnguyen2431@gmail.com
               </h2>
               <h3>liên hệ</h3>
-              <input type="text" value={userInfo.name} placeholder="Name" />
-              <input type="text" value={userInfo.email} placeholder="Email" />
+              {userInfo ? (
+                <>
+                  <input type="text" value={userInfo.name} placeholder="Name" />
+                  <input
+                    type="text"
+                    value={userInfo.email}
+                    placeholder="Email"
+                  />
+                </>
+              ) : (
+                <>
+                  <input type="text" value="" placeholder="Name" />
+                  <input type="text" value="" placeholder="Email" />
+                </>
+              )}
               <textarea rows="5" cols="50" placeholder="Nội dung..." />
               <button className="btn btn-contact">gửi liên hệ</button>
             </div>
