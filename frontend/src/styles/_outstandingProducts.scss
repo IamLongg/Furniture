@@ -8,6 +8,7 @@
     margin-top: 13.5rem;
     .product-large {
       width: 30%;
+      height: 50%;
       padding: 2.5rem 2rem;
       border: 0.2rem solid $darkorange;
       display: flex;
@@ -46,4 +47,27 @@
       width: 65%;
     }
   }
+}
+
+@include maxWidth(1024px) {
+  .content {
+    @include grid(20rem);
+  }
+}
+
+@include maxWidth(768px) {
+  .outstanding_products {
+    .product-large {
+      display: none;
+    }
+    .product-medium {
+      width: 100%;
+      .content {
+        @include grid(15rem);
+      }
+    }
+  }
+}
+
+@include maxWidth(450px) {
 }

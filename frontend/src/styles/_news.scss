@@ -53,3 +53,13 @@
 .all-news {
   padding: 20rem 0 5rem;
 }
+
+@include maxWidth(768px) {
+  .news {
+    &-main {
+      &-content {
+        @include grid(15rem);
+      }
+    }
+  }
+}

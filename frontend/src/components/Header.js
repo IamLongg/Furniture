@@ -8,6 +8,7 @@ import { logout } from "../Redux/actions/userActions";
 
 const Header = (props) => {
   const { isShowBg } = props;
+  const [clicked, setClicked] = useState(false);
   const [keyword, setKeyWord] = useState();
   let history = useHistory();
 
@@ -30,6 +31,12 @@ const Header = (props) => {
       history.push("/");
     }
   };
+  const handleClickBar = () => {
+    setClicked(!clicked);
+  };
+  if (window.scrollY > 30) {
+    setClicked(clicked);
+  }
 
   return (
     <>
@@ -88,12 +95,28 @@ const Header = (props) => {
               </div>
             </div>
           </div>
+          <div className="search-mobile">
+            <input
+              className="input"
+              type="text"
+              placeholder="Nhập từ khóa tìm kiếm"
+              onChange={(e) => setKeyWord(e.target.value)}
+            />
+            <button type="submit" className="search-mobile-icon">
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
           <div className="header-content flex-center">
             <div className="categories">
               <button className="btn">
                 <i className="fa-solid fa-bars"></i>
                 danh mục sản phẩm
               </button>
+            </div>
+            <div className="bars" onClick={handleClickBar}>
+              <i
+                className={clicked ? "fa-solid fa-bars" : "fa-solid fa-xmark"}
+              ></i>
             </div>
             <ul className="navbar flex-center">
               <li className="navbar-item">
@@ -119,6 +142,49 @@ const Header = (props) => {
               <li className="navbar-item">
                 <NavLink to="/contact" className="links">
                   liên hệ
+                </NavLink>
+              </li>
+            </ul>
+            <ul
+              className={
+                clicked
+                  ? "navbar-mobile flex-center"
+                  : "navbar-mobile active flex-center"
+              }
+            >
+              <li className="navbar-moblie-item">
+                <NavLink to="/" exact className="links">
+                  trang chủ
+                </NavLink>
+              </li>
+              <li className="navbar-moblie-item">
+                <NavLink to="/intro" className="links">
+                  giới thiệu
+                </NavLink>
+              </li>
+              <li className="navbar-moblie-item">
+                <NavLink to="/all/products" className="links">
+                  sản phẩm
+                </NavLink>
+              </li>
+              <li className="navbar-moblie-item">
+                <NavLink to="/all/news" className="links">
+                  tin tức
+                </NavLink>
+              </li>
+              <li className="navbar-moblie-item">
+                <NavLink to="/contact" className="links">
+                  liên hệ
+                </NavLink>
+              </li>
+              <li className="navbar-moblie-item">
+                <NavLink to="/register" className="links">
+                  đăng ký
+                </NavLink>
+              </li>
+              <li className="navbar-moblie-item">
+                <NavLink to="/login" className="links">
+                  đăng nhập
                 </NavLink>
               </li>
             </ul>

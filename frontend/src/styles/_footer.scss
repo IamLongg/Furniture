@@ -109,3 +109,35 @@
     }
   }
 }
+
+@include maxWidth(768px) {
+  .footer {
+    .policy {
+      width: 100%;
+      &-main {
+        @include grid(15rem);
+      }
+    }
+    .aboutUs {
+      &-main {
+        @include grid(25rem);
+      }
+    }
+  }
+}
+
+@include maxWidth(500px) {
+  .footer {
+    .policy {
+      width: 100%;
+      &-main {
+        @include grid(20rem);
+      }
+    }
+    .aboutUs {
+      &-main {
+        @include grid(25rem);
+      }
+    }
+  }
+}

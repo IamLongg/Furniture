@@ -275,3 +275,17 @@
     }
   }
 }
+
+@include maxWidth(768px) {
+  .shipping {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    .deliver {
+      padding: 3rem 0 6rem 5rem;
+      .form button {
+        margin-right: 10rem;
+      }
+    }
+  }
+}

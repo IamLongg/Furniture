@@ -39,6 +39,9 @@
         display: none;
       }
       input {
+        @include minAndmaxWidth(1000px, 1200px) {
+          width: 35rem;
+        }
         width: 45rem;
         font-size: 1.3rem;
         color: $gray;
@@ -68,7 +71,6 @@
     .auth {
       display: flex;
       justify-content: space-between;
-      // gap: 0 2rem;
       align-items: center;
       a {
         @include textUpperCase(1.1rem);
@@ -109,6 +111,7 @@
           visibility: hidden;
           transition: opacity 0.2s linear, visibility 0.2s linear;
           transform: translateY(10px);
+          z-index: 2;
           &:before {
             content: "";
             width: 100%;
@@ -134,8 +137,16 @@
         }
       }
       .register {
+        @include maxWidth(500px) {
+          display: none;
+        }
         a {
           border-right: 0.3rem solid $gray-light;
+        }
+      }
+      .login {
+        @include maxWidth(500px) {
+          display: none;
         }
       }
       .cart {
@@ -163,6 +174,40 @@
       }
     }
   }
+  .search-mobile {
+    display: block;
+    width: 23rem;
+    position: relative;
+    margin: 0 auto;
+    @include minWidth(769px) {
+      opacity: 0;
+    }
+    input {
+      max-width: 100%;
+      font-size: 1.3rem;
+      color: $gray;
+      padding: 0.5rem 1.8rem;
+      font-family: $font-family;
+      font-weight: 400;
+      border: $boder;
+      border-radius: 0.5rem;
+    }
+    &-icon {
+      position: absolute;
+      right: 0.8rem;
+      top: 0rem;
+      background-color: $darkorange;
+      border-radius: 50%;
+      i {
+        width: 3.5rem;
+        height: 3.5rem;
+        line-height: 3.5rem;
+        font-size: 1.8rem;
+        color: $white;
+        cursor: pointer;
+      }
+    }
+  }
   &-content {
     padding: 3.5rem 1rem 0 1rem;
     @include maxWidth(992px) {
@@ -175,17 +220,63 @@
           padding-right: 1rem;
         }
       }
+      @include maxWidth(1030px) {
+        display: none;
+      }
+    }
+    .bars {
+      position: relative;
+      padding: 0.5rem 1rem;
+      background: $white;
+      margin: 0.5rem 0;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      i {
+        font-size: 2.4rem;
+        color: $text;
+      }
+      @include minWidth(769px) {
+        display: none;
+      }
     }
     .navbar {
       position: relative;
       align-items: flex-start;
+      @include maxWidth(1030px) {
+        margin: 0 auto;
+      }
+      @include maxWidth(768px) {
+        position: absolute;
+        left: 3rem;
+        top: 18.2rem;
+        display: flex;
+        flex-direction: column;
+        background-color: $white;
+        min-width: 30%;
+        border-radius: 0.4rem;
+        transform: translateX(-30rem);
+        transition: all 0.4s ease-out;
+        &.active {
+          transform: translateX(0rem);
+        }
+      }
       li {
+        @include maxWidth(768px) {
+          padding: 1.5rem 3rem;
+        }
         padding-right: 3.5rem;
         list-style: none;
         .links {
           position: relative;
           @include textUpperCase(1.4rem);
           transition: $transition;
+          @include maxWidth(768px) {
+            color: $dark;
+            font-weight: 500;
+            .links:hover {
+              color: $dark;
+            }
+          }
           &::after {
             position: absolute;
             content: "";
@@ -194,7 +285,70 @@
             width: 30%;
             height: 0.3rem;
             border-radius: 0.5rem;
-
+            background-color: $white;
+            transition: $transition;
+            opacity: 0;
+          }
+          &:hover {
+            color: $darkorange;
+          }
+          &:hover::after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .navbar-mobile {
+      position: relative;
+      align-items: flex-start;
+      z-index: 5;
+      @include maxWidth(1030px) {
+        margin: 0 auto;
+      }
+      @include minWidth(769px) {
+        display: none;
+      }
+      @include maxWidth(768px) {
+        position: absolute;
+        left: 3rem;
+        top: 18.2rem;
+        display: flex;
+        flex-direction: column;
+        background-color: $white;
+        width: 35%;
+        border-radius: 0.4rem;
+        transform: translateX(-30rem);
+        transition: all 0.4s ease-out;
+        &.active {
+          transform: translateX(0rem);
+        }
+      }
+      li {
+        @include maxWidth(768px) {
+          padding: 1rem 3rem;
+        }
+        padding-right: 3.5rem;
+        list-style: none;
+        .links {
+          position: relative;
+          @include textUpperCase(1.6rem);
+          text-transform: capitalize;
+          transition: $transition;
+          @include maxWidth(768px) {
+            color: $dark;
+            font-weight: 500;
+            &:hover {
+              color: $dark;
+            }
+          }
+          &::after {
+            position: absolute;
+            content: "";
+            left: 2rem;
+            bottom: -1rem;
+            width: 30%;
+            height: 0.3rem;
+            border-radius: 0.5rem;
             background-color: $white;
             transition: $transition;
             opacity: 0;

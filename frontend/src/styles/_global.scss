@@ -17,7 +17,7 @@ html {
 
 .container {
   width: 100%;
-  max-width: 108em;
+  max-width: 108rem;
   margin: 0 auto;
 }
 
@@ -45,6 +45,7 @@ html {
 
 .content {
   @include grid(15rem);
+
   .item {
     display: flex;
     flex-direction: column;
@@ -65,9 +66,10 @@ html {
     }
     .info {
       position: absolute;
-      display: inline-flex;
-      left: 16%;
-      bottom: 5%;
+      display: flex;
+      left: 50%;
+      bottom: 0%;
+      transform: translate(-50%, -50%);
       opacity: 0;
     }
     a {
@@ -186,6 +188,12 @@ html {
   html {
     font-size: 60%;
   }
+  .container {
+    width: 100%;
+    max-width: 108rem;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
 }
 
 @include maxWidth(768px) {
@@ -194,8 +202,8 @@ html {
   }
 }
 
-@include maxWidth(450px) {
+@include maxWidth(500px) {
   html {
-    font-size: 50%;
+    font-size: 45%;
   }
 }
