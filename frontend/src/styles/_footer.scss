@@ -48,6 +48,7 @@
           @include text(1.4rem);
           text-transform: none;
           padding: 0.7rem 0;
+          padding-right: 3rem;
           &::first-letter {
             text-transform: capitalize;
           }

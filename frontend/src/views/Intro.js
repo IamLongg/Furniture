@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import img from "../assets/images/intro.jpg";
-import logoBrand from "../assets/images/LOGOBYLONG.png";
+import logoBrand from "../assets/images/NguyenDucLong.jpg";
 
 const Intro = () => {
   return (

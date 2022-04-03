@@ -3,7 +3,8 @@ import Message from "../LoadingError/Error";
 import Loading from "../LoadingError/Loading";
 import moment from "moment";
 
-const OrderProfile = ({ loading, error, orders }) => {
+const OrderProfile = (props) => {
+  const { loading, error, orders } = props;
   return (
     <>
       <table className="table" id="my-orders-table">
@@ -52,14 +53,14 @@ const OrderProfile = ({ loading, error, orders }) => {
                     <tr className="first odd">
                       <td>
                         <a
-                          href="/account/orders/d307d90600ef4a8f82e3ab3bd2b2d354"
+                          href={`/orders/${item._id}`}
                           title=""
                           style={{ color: "#36304a" }}
                         >
                           {item._id}
                         </a>
                       </td>
-                      <td>{moment(item.createdAt).format("DD/MM/YY")}</td>
+                      <td>{moment(item.createdAt).format("DD/MM/YYYY")}</td>
                       <td>
                         <span className="price">
                           {new Intl.NumberFormat("vi-VN").format(
@@ -70,7 +71,7 @@ const OrderProfile = ({ loading, error, orders }) => {
                       </td>
                       <td>
                         <em>
-                          {orders.isPaid === true ? (
+                          {item.isPaid === true ? (
                             <>Đã Thanh Toán</>
                           ) : (
                             <>Chưa Thanh Toán</>

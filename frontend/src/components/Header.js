@@ -34,9 +34,6 @@ const Header = (props) => {
   const handleClickBar = () => {
     setClicked(!clicked);
   };
-  if (window.scrollY > 30) {
-    setClicked(clicked);
-  }
 
   return (
     <>

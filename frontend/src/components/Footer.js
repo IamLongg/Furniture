@@ -57,7 +57,8 @@ const Footer = () => {
               <img src={logo} alt="" />
               <p>siêu thị nội thất sea furniture</p>
               <p>
-                trụ sở chính: 94 Trần Vĩ, xã Ba Vì, huyện Ba Vì, Hà Nội, Vietnam
+                trụ sở chính: 10/80C Xa lộ Hà Nội, Phường Tân Phú, Thủ Đức,
+                Thành phố Hồ Chí Minh, Việt Nam
               </p>
               <p>hoteline: 0912117494</p>
               <p>email: longnguyen2431@gmail.com</p>

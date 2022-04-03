@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../LoadingError/Loading";
-import Error from "../LoadingError/Error";
 import Toast from "../LoadingError/Toast";
 import Message from "../LoadingError/Error";
 import { toast } from "react-toastify";

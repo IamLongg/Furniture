@@ -27,7 +27,7 @@ const LatestOrder = (props) => {
                   <td>
                     {order.isPaid ? (
                       <span className="badge rounded-pill alert-success">
-                        Paid At {order.PaidAt}
+                        Đã thanh toán
                       </span>
                     ) : (
                       <span className="badge rounded-pill alert-danger">
@@ -35,7 +35,7 @@ const LatestOrder = (props) => {
                       </span>
                     )}
                   </td>
-                  <td>{order.createdAt}</td>
+                  <td>{moment(order.createdAt).format("DD/MM/YYYY")}</td>
                   <td className="d-flex justify-content-end align-item-center">
                     <Link to={`/order/${order._id}`} className="text-success">
                       <i className="fas fa-eye"></i>
