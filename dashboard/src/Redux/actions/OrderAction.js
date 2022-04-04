@@ -1,4 +1,5 @@
 import axios from "axios";
+import { axiosInstance } from "../../config";
 import {
   ORDER_DELIVERED_FAIL,
   ORDER_DELIVERED_REQUEST,
@@ -26,7 +27,7 @@ export const listOrders = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`/orders/all`, config);
+    const { data } = await axiosInstance.get(`/orders/all`, config);
 
     dispatch({ type: ORDER_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -58,7 +59,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.get(`/orders/${id}`, config);
+    const { data } = await axiosInstance.get(`/orders/${id}`, config);
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     const message =
@@ -89,7 +90,7 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.put(
+    const { data } = await axiosInstance.put(
       `/orders/${order._id}/delivered`,
       {},
       config

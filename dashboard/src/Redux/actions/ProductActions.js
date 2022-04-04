@@ -1,4 +1,5 @@
 import axios from "axios";
+import { axiosInstance } from "../../config";
 import {
   PRODUCT_CREATE_FAIL,
   PRODUCT_CREATE_REQUEST,
@@ -33,7 +34,7 @@ export const listProducts = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`/products/admin/all`, config);
+    const { data } = await axiosInstance.get(`/products/admin/all`, config);
 
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -66,7 +67,7 @@ export const deleteProducts = (id) => async (dispatch, getState) => {
       },
     };
 
-    await axios.delete(`/products/${id}`, config);
+    await axiosInstance.delete(`/products/${id}`, config);
 
     dispatch({ type: PRODUCT_DELETE_SUCCESS });
   } catch (error) {
@@ -101,7 +102,7 @@ export const createProducts =
         },
       };
 
-      const { data } = await axios.post(
+      const { data } = await axiosInstance.post(
         `/products/`,
         { name, price, description, image, countInStock },
         config
@@ -127,7 +128,7 @@ export const createProducts =
 export const editProduct = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_EDIT_REQUEST });
-    const { data } = await axios.get(`/products/${id}`);
+    const { data } = await axiosInstance.get(`/products/${id}`);
     dispatch({ type: PRODUCT_EDIT_SUCCESS, payload: data });
   } catch (error) {
     const message =
@@ -160,7 +161,7 @@ export const updateProducts = (product) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(
+    const { data } = await axiosInstance.put(
       `/products/edit/${product._id}`,
       product,
       config

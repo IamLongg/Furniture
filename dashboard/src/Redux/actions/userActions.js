@@ -10,6 +10,7 @@ import {
 
 import axios from "axios";
 import { toast } from "react-toastify";
+import { axiosInstance } from "../../config";
 
 // Login
 export const login = (email, password) => async (dispatch) => {
@@ -27,7 +28,7 @@ export const login = (email, password) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const { data } = await axios.post(
+    const { data } = await axiosInstance.post(
       `/users/login`,
       { email, password },
       config
@@ -79,10 +80,9 @@ export const listUser = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`/users`, config);
+    const { data } = await axiosInstance.get(`/users`, config);
 
     dispatch({ type: USER_LIST_SUCCESS, payload: data });
-
   } catch (error) {
     const message =
       error.response && error.response.data.message
