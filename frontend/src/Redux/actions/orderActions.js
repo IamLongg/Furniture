@@ -15,6 +15,7 @@ import {
 import axios from "axios";
 import { CART_CLEAR_ITEMS } from "../constants/CartConstants";
 import { logout } from "./userActions";
+import { axiosInstance } from "../../config";
 
 // CREATE ORDER
 export const createOrder = (order) => async (dispatch, getState) => {
@@ -32,7 +33,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`/orders`, order, config);
+    const { data } = await axiosInstance.post(`/orders`, order, config);
     dispatch({ type: ORDER_CREATE_SUCCESS, payload: data });
     dispatch({ type: CART_CLEAR_ITEMS, payload: data });
 
@@ -66,7 +67,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.get(`/orders/${id}`, config);
+    const { data } = await axiosInstance.get(`/orders/${id}`, config);
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     const message =
@@ -100,7 +101,7 @@ export const payOrder =
         },
       };
 
-      const { data } = await axios.put(
+      const { data } = await axiosInstance.put(
         `/orders/${orderId}/pay`,
         paymentResult,
         config
@@ -136,7 +137,7 @@ export const listMyOrders = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`/orders/`, config);
+    const { data } = await axiosInstance.get(`/orders/`, config);
     dispatch({ type: ORDER_LIST_MY_SUCCESS, payload: data });
   } catch (error) {
     const message =

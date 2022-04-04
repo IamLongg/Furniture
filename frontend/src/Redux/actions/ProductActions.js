@@ -1,4 +1,5 @@
 import axios from "axios";
+import { axiosInstance } from "../../config";
 import {
   PRODUCT_LIST_FAIL,
   PRODUCT_LIST_REQUEST,
@@ -13,7 +14,7 @@ export const listProduct =
   async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_LIST_REQUEST });
-      const { data } = await axios.get(
+      const { data } = await axiosInstance.get(
         `/products?keyword=${keyword}&pageNumber=${pageNumber}`
       );
       console.log(data.data);
@@ -32,7 +33,7 @@ export const listProduct =
 export const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
-    const { data } = await axios.get(`/products/${id}`);
+    const { data } = await axiosInstance.get(`/products/${id}`);
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({

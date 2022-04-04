@@ -5,14 +5,19 @@ import { getOrderDetails, payOrder } from "../Redux/actions/orderActions";
 import Loading from "../components/LoadingError/Loading";
 import Message from "../components/LoadingError/Error";
 import moment from "moment";
+import { axiosInstance } from "../config";
 import axios from "axios";
 import { ORDER_PAY_RESET } from "../Redux/constants/OrderConstants";
-const Order = ({ match }) => {
+const Order = ({ location, history, match }) => {
   const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed();
   };
 
   const orderId = match.params.id;
+  const redirect = location.search
+    ? location.search.split("=")[1]
+    : "/payment/success";
+
   const dispatch = useDispatch();
 
   const orderDetails = useSelector((state) => state.orderDetails);
@@ -38,7 +43,7 @@ const Order = ({ match }) => {
 
   useEffect(() => {
     const addPayPalScript = async () => {
-      const { data: clientId } = await axios.get("/api/config/paypal");
+      const { data: clientId } = await axiosInstance.get("/api/config/paypal");
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
@@ -62,6 +67,7 @@ const Order = ({ match }) => {
 
   const successPayMentHandler = (paymentResult) => {
     dispatch(payOrder(orderId, paymentResult));
+    history.push(redirect);
   };
 
   return (

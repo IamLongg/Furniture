@@ -15,6 +15,8 @@ import {
   USER_UPDATE_PROFILE_FAIL,
 } from "../constants/UserConstants";
 
+import { axiosInstance } from "../../config";
+
 import axios from "axios";
 import { ORDER_LIST_MY_RESET } from "../constants/OrderConstants";
 
@@ -27,7 +29,7 @@ export const login = (email, password) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const { data } = await axios.post(
+    const { data } = await axiosInstance.post(
       `/users/login`,
       { email, password },
       config
@@ -65,7 +67,7 @@ export const register = (name, email, password, phone) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const { data } = await axios.post(
+    const { data } = await axiosInstance.post(
       `/users/register`,
       { name, email, password, phone },
       config
@@ -99,7 +101,7 @@ export const getUserDetailsProfile = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.get(`/users/${id}`, config);
+    const { data } = await axiosInstance.get(`/users/${id}`, config);
 
     dispatch({ type: USER_DETAILS_PROFILE_SUCCESS, payload: data });
   } catch (error) {
@@ -131,7 +133,7 @@ export const updateProfile = (user) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.put(`/users/profile`, user, config);
+    const { data } = await axiosInstance.put(`/users/profile`, user, config);
 
     dispatch({ type: USER_UPDATE_PROFILE_SUCCESS, payload: data });
 

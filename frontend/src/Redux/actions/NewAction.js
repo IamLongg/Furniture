@@ -1,4 +1,5 @@
 import axios from "axios";
+import { axiosInstance } from "../../config";
 import {
   NEW_LIST_REQUEST,
   NEW_LIST_FAIL,
@@ -11,7 +12,7 @@ import {
 export const listNew = () => async (dispatch) => {
   try {
     dispatch({ type: NEW_LIST_REQUEST });
-    const { data } = await axios.get("/news");
+    const { data } = await axiosInstance.get("/news");
     console.log(data.data);
     dispatch({ type: NEW_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -28,7 +29,7 @@ export const listNew = () => async (dispatch) => {
 export const listNewDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: NEW_DETAIL_REQUEST });
-    const { data } = await axios.get(`/news/${id}`);
+    const { data } = await axiosInstance.get(`/news/${id}`);
     dispatch({ type: NEW_DETAIL_SUCCESS, payload: data });
   } catch (error) {
     dispatch({

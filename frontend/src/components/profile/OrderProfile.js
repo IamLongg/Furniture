@@ -53,7 +53,7 @@ const OrderProfile = (props) => {
                     <tr className="first odd">
                       <td>
                         <a
-                          href={`/orders/${item._id}`}
+                          href={`/order/${item._id}`}
                           title=""
                           style={{ color: "#36304a" }}
                         >
