@@ -157,14 +157,14 @@
       float: left;
       clear: both;
       width: 80%;
-      line-height: 3rem;
+      line-height: 4rem;
       font-size: 1.8rem;
       font-weight: 100;
       text-align: right;
     }
 
     .totals-value {
-      font-size: 2rem;
+      font-size: 2.6rem;
       float: right;
       width: 20%;
       text-align: center;
@@ -191,6 +191,48 @@
         background-color: #7b8395;
         color: $white;
       }
+    }
+  }
+}
+@include maxWidth(450px) {
+  .shopping-cart {
+    .column-labels {
+      label {
+        padding-bottom: 2.5rem;
+        margin-bottom: 2.5rem;
+        font-size: 1.2rem;
+        text-align: center;
+        border-bottom: none;
+      }
+    }
+    .product-line-price {
+      display: none;
+    }
+    .column-labels {
+      width: 120%;
+    }
+    .product {
+      width: 130%;
+      .product-details {
+        width: 20%;
+      }
+      .product-quantity {
+        width: 10%;
+        select {
+          width: 3.8rem;
+        }
+      }
+      .product-price {
+        width: 16%;
+      }
+    }
+    .totals-item {
+      width: 190%;
+    }
+    .checkout {
+      display: flex;
+      padding: 0;
+      justify-content: space-between;
     }
   }
 }

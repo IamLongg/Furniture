@@ -9,6 +9,7 @@ import { axiosInstance } from "../config";
 import axios from "axios";
 import { ORDER_PAY_RESET } from "../Redux/constants/OrderConstants";
 const Order = ({ location, history, match }) => {
+  window.scrollTo(0, 0);
   const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed();
   };

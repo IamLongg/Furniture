@@ -7,6 +7,7 @@ import { saveShippingAddress } from "../Redux/actions/cartActions";
 import { useDispatch, useSelector } from "react-redux";
 
 const ShipmentDetail = ({ history }) => {
+  window.scrollTo(0, 0);
   const { state, onCitySelect, onDistrictSelect, onWardSelect } =
     useLocationForm(false);
 

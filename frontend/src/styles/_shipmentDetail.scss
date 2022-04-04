@@ -207,6 +207,9 @@
     height: 100vh;
     .max-with {
       max-width: 45rem;
+      @include maxWidth(450px) {
+        padding-right: 3rem;
+      }
       .info-product {
         display: flex;
         justify-content: space-between;
