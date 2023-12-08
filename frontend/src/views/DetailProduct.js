@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
-import ReactImageMagnify from "react-image-magnify";
 import { useDispatch, useSelector } from "react-redux";
 import { listProductDetails } from "../Redux/actions/ProductActions";
 import Loading from "../components/LoadingError/Loading.js";
