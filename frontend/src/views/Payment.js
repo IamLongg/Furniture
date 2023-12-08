@@ -10,6 +10,7 @@ const Payment = ({ history }) => {
   window.scrollTo(0, 0);
   const cart = useSelector((state) => state.cart);
   const { shippingAddress, cartItems } = cart;
+  console.log(cartItems);
 
   const [paymentMethod, setPaymentMethod] = useState("PayPal");
 

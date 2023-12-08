@@ -3,6 +3,7 @@ import asyncHandler from "express-async-handler";
 import { protect, admin } from "../Middleware/AuthMiddleWare.js";
 import User from "../Models/UserModel.js";
 import generateToken from "../utils/generateToken.js";
+import bcrypt from "bcryptjs";
 
 const userRouter = express.Router();
 
@@ -13,7 +14,8 @@ userRouter.post(
     const user = await User.findOne({
       email,
     });
-    if (user && (await user.matchPassword(password))) {
+    const comparePass = user && bcrypt.compare(password, user.password);
+    if (comparePass) {
       res.json({
         _id: user._id,
         name: user.name,
@@ -96,9 +98,7 @@ userRouter.put(
       user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
       user.phone = req.body.phone || user.phone;
-      if (req.body.password) {
-        user.password = req.body.password;
-      }
+      user.isAdmin = req.body.isAdmin || user.isAdmin;
       const updateUser = await user.save();
       res.json({
         _id: updateUser._id,

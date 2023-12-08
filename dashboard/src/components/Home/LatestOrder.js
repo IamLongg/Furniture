@@ -17,7 +17,7 @@ const LatestOrder = (props) => {
         <div className="table-responsive">
           <table className="table">
             <tbody>
-              {orders.slice(0, 3).map((order) => (
+              {/* {orders?.slice(0, 3).map((order) => (
                 <tr>
                   <td>
                     <b>{order.user.name}</b>
@@ -42,7 +42,7 @@ const LatestOrder = (props) => {
                     </Link>
                   </td>
                 </tr>
-              ))}
+              ))} */}
             </tbody>
           </table>
         </div>

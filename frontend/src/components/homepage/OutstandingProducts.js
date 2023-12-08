@@ -13,8 +13,8 @@ const OutstandingProducts = (props) => {
 
   const productList = useSelector((state) => state.productList);
   const { loading, error, products, page, pages } = productList;
-  const singleProduct = products.slice(0, 1);
-  const sliceProduct = products.slice(0, 8);
+  const singleProduct = products?.slice(0, 1);
+  const sliceProduct = products?.slice(0, 8);
 
   useEffect(() => {
     dispatch(listProduct(keyword, pagenumber));

@@ -7,14 +7,20 @@ import userRouter from "./Routes/UserRoutes.js";
 import orderRouter from "./Routes/OrderRoutes.js";
 import newRouter from "./Routes/NewRoutes.js";
 import cors from "cors";
-
 import { errorHandler, notFound } from "./Middleware/Error.js";
 
-dotenv.config();
-connectDB();
+require("dotenv").config();
 const app = express();
+
 app.use(cors());
 app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+
+connectDB();
 
 app.use("/api/import", ImportData);
 app.use("/products", productRoute);
@@ -29,10 +35,9 @@ app.get("/api/config/paypal", (req, res) => {
 app.use(notFound);
 app.use(errorHandler);
 
-// app.get("/", (req, res) => {
-//   res.send("API is running...");
-// });
-
 const PORT = process.env.PORT || 8000;
 
-app.listen(PORT, console.log(`server is running port ${PORT}...`));
+const listen = app.listen(PORT, (err) => {
+  if (err) console.log("Error in setup server");
+  console.log("Server listenning on port " + listen.address().port);
+});

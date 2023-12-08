@@ -17,7 +17,6 @@ export const listProduct =
       const { data } = await axiosInstance.get(
         `/products?keyword=${keyword}&pageNumber=${pageNumber}`
       );
-      console.log(data.data);
       dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
     } catch (error) {
       dispatch({

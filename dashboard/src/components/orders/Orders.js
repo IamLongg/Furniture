@@ -24,9 +24,9 @@ const Orders = (props) => {
           return (
             <tr key={item._id}>
               <td>
-                <b>{item.user.name}</b>
+                <b>{item.user?.name}</b>
               </td>
-              <td>{item.user.email}</td>
+              <td>{item.user?.email}</td>
               <td>
                 {new Intl.NumberFormat("vi-VN").format(`${item.totalPrice}`)}₫
               </td>

@@ -8,7 +8,6 @@ import {
   USER_LOGOUT_SUCCESS,
 } from "../constants/UserConstants";
 
-import axios from "axios";
 import { toast } from "react-toastify";
 import { axiosInstance } from "../../config";
 

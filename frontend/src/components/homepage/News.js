@@ -8,7 +8,7 @@ const News = () => {
 
   const newListProduct = useSelector((state) => state.newListProduct);
   const { loading, error, news } = newListProduct;
-  const sliceNew = news.slice(0, 3);
+  const sliceNew = news?.slice(0, 3);
 
   useEffect(() => {
     dispatch(listNew());

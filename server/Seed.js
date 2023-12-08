@@ -13,7 +13,6 @@ ImportData.post(
   "/user",
   asyncHandler(async (req, res) => {
     await User.remove({});
-
     const importUser = await User.insertMany(users);
     res.send({ importUser });
   })

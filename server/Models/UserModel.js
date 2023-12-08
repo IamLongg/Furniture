@@ -32,8 +32,12 @@ const userSchema = mongoose.Schema(
 );
 
 //login
-userSchema.methods.matchPassword = async function (enterPassword) {
-  return await bcrypt.compare(enterPassword, this.password);
+// userSchema.methods.matchPassword = async function (enterPassword) {
+//   return await bcrypt.compare(enterPassword, this.password);
+// };
+
+userSchema.methods.comparePassword = async function (enterdPassword) {
+  return await bcrypt.compare(enterdPassword, this.password);
 };
 
 //register;

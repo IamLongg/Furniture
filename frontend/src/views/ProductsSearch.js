@@ -1,28 +1,37 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import Header from "../components/Header";
 import OutstandingProducts from "../components/homepage/OutstandingProducts";
 import { listProduct } from "../Redux/actions/ProductActions";
 
-const ProductsSearch = ({ match, isShowBg, pagenumber }) => {
+const ProductsSearch = ({ match, pagenumber }) => {
   const keyword = match.params.keyword;
   const dispatch = useDispatch();
 
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products, page, pages } = productList;
-
+  const products = useSelector(
+    (state) => state.productList.products,
+    shallowEqual
+  );
   useEffect(() => {
     dispatch(listProduct(keyword, pagenumber));
   }, [dispatch, keyword, pagenumber]);
+
   return (
     <>
       <Header isShowBg={true} />
       <div className="productSearch">
         <div className="container">
-          <h2>Có {products.length} kết quả tìm kiếm</h2>
-          <OutstandingProducts keyword={keyword} />
+          {products ? (
+            <>
+              <h2>Có {products.length} kết quả tìm kiếm</h2>
+              <OutstandingProducts keyword={keyword} />
+            </>
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
+      {console.log("rerender")}
     </>
   );
 };
